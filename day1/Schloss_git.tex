@@ -1,0 +1,354 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Modified by Jeremie Gillet in November 2015 to make an OIST Skill Pill template
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+\usetheme{Madrid}
+
+\definecolor{OISTcolor}{rgb}{0.65,0.16,0.16}
+\usecolortheme[named=OISTcolor]{structure}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{textpos} % Use for positioning the Skill Pill logo
+
+% For code displays
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Skill Pill]{Skill Pill: Introduction to Git and Version Control} % The short title appears at the bottom of every slide, the full title is only on the title page
+\subtitle{Lecture 1: Git ready!}
+
+\author{\textbf{James Schloss}} % Your name
+\institute[OIST] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Okinawa Institute of Science and Technology \\ % Your institution for the title page
+\textit{james.schloss@oist.jp} % Your email address
+}
+\date{June 1, 2016} % Date, can be changed to a custom date
+
+\begin{document}
+
+\setbeamertemplate{background}{\includegraphics[width=\paperwidth]{SPbackground.png}} % Adding the background logo
+
+\begin{frame}
+\vspace*{1.4cm}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\setbeamertemplate{background}{} % No background logo after title frame
+
+\addtobeamertemplate{frametitle}{}{% Adding the Skill Pill logo on the title screen after title frame
+\begin{textblock*}{100mm}(.8\textwidth,-1.25cm)
+\includegraphics[height=2cm]{SPwhite.png}
+\end{textblock*}}
+
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{What is Version Control}
+\section{Terminal Talk}
+
+\section{Git basics}
+
+\section{Working alone}
+
+\begin{frame}[fragile]
+\frametitle{Version Control}
+\includegraphics[width=\textwidth]{Multiverse.jpg}
+\begin{itemize}
+\item Version control is a method that allows you to control different versions of things (Not necessarily universes).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Terminal Talk}
+\begin{columns}
+
+\column{0.7\textwidth}
+\begin{itemize}
+\item We had a terminal skill pill and I have included the cheatsheet from that. 
+\item There is a GUI downloadable from GitHub called the \textbf{GitHub Desktop}. We will not be using this for religious reasons.
+\item Everything we do will be usable on Sango.
+\end{itemize}
+
+\column{0.3\textwidth}
+\includegraphics[width=\textwidth]{terminal.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Your first repository}
+
+
+\begin{itemize}
+\item A \textbf{repository} is a place to store code.
+\begin{itemize}
+\item There are many sites to host your repository on (github, bitbucket), including your own local machine.
+\item All of the essential parts of your repository can be found in \textbf{.git} file
+\end{itemize}
+
+\end{itemize}
+
+\includegraphics[width=\textwidth]{Storage.jpg}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{The local repo}
+\begin{columns}
+\column{0.7\textwidth}
+Let's \textbf{git} started.
+\begin{itemize}
+\item To initialize a git repository, simply type \textbf{git init} in a directory (preferably empty for now)
+\item This creates a folder \textbf{.git/}, where all your git information is held.
+\item Git tracks \textbf{commits}. Check these commits with \textbf{git log}.
+\item \textbf{git status} checks any changes since the last commit.
+\item \textbf{git add} adds new files.
+\item \textbf{git commit} commits anything git status shows in \color{green}{green}.
+\end{itemize}
+\column{0.3\textwidth}
+\includegraphics[width=\textwidth]{git.jpg}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Quick Exercise}
+    \begin{block}{EXERCISE}
+        \begin{enumerate}
+        \item Open a terminal
+        \item Create a new directory and run \textbf{git init}
+        \item Create a file and run \textbf{git status}
+        \item Use a combination of \textbf{git add} and \textbf{git commit} to add a new file to the git repository.
+        \item Check the \textbf{git log}.
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Ignorance is bliss}
+
+\begin{itemize}
+\item Keep your repository clean! Do your best to commit as few images and data files as possible!
+\item You can do this by ignoring certain file extensions in a \textbf{.gitignore} file.
+\end{itemize}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{lstlisting}
+# Example gitignore configuration
+*.log
+*.tar
+*.gz
+*.exe
+*.dat
+\end{lstlisting}
+\column{0.5\textwidth}
+\includegraphics[width=\textwidth]{IIB.jpg}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Quick Exercise}
+    \begin{block}{EXERCISE}
+        \begin{enumerate}
+        \item Touch multiple files with various extensions, one of which should be \textbf{.dat}.
+        \item Ignore the \textbf{.dat} file, but commit all the others.
+        \item Be sure to write a clear message describing what you did.
+        \item Check the \textbf{git log}
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{git} with it!}
+\begin{columns}
+\column{0.7\textwidth}
+Now we move to the fun* stuff: working with \textbf{online repositories}.
+\begin{itemize}
+\item For this, we will be using \textbf{github}. 
+\item To use an online repository, we need to synchronize our local machine with the master repository held elsewhere. This is done with the \textbf{clone} command.
+\item From here, you can do the following:
+\begin{itemize}
+\item \textbf{git push} to push any changes you may have to the online repository.
+\item \textbf{git pull} to take any changes from the 
+\end{itemize}
+\end{itemize}
+\column{0.3\textwidth}
+\includegraphics[width=\textwidth]{clone.jpg}z
+\end{columns}
+
+*Here, the word \textit{fun} is subject to interpretation.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Quick Exercise}
+    \begin{block}{EXERCISE}
+        \begin{enumerate}
+        \item Clone our skillpill repository:
+        \begin{lstlisting}
+git clone git@github.com:oist/skillpill-git.git
+        \end{lstlisting}
+        or
+        \begin{lstlisting}
+git clone https://github.com/oist/skillpill-git.git
+        \end{lstlisting}
+        \item Working with a small group, make commits and push and pull stuff from that repo.
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{What it will feel like...}
+\begin{columns}
+\column{0.6\textwidth}
+\begin{itemize}
+\item git is not intuitive to start with, but it's the best way to work collaboratively with other people.
+\item The more you use it, the more you will like it. Think Stockholm syndrome.
+\end{itemize}
+\column{0.4\textwidth}
+\includegraphics[width=\textwidth]{gitxkcd.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{A fear of commitment}
+\includegraphics[width=\textwidth]{no_commit.jpg}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Write clear commit messages!}
+\includegraphics[width=\textwidth]{git_commit.png}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Checking out your versions}
+\begin{columns}
+\column{0.7\textwidth}
+We now know how to work with both local and online repositories, but what about using different versions?
+\begin{itemize}
+\item \textbf{git checkout} allows you to view the repository at any old commit (found with \textbf{git log}).
+\item You may also checkout specific files like so:
+        \begin{lstlisting}
+git checkout a1e8fb5 hello.py
+        \end{lstlisting}
+\item Note that the most recent commit is \textbf{HEAD} and the one just before that is \textbf{HEAD$\mathbf{\sim}$1}
+\item This command will be used later, so keep it in mind! 
+\end{itemize}
+\column{0.3\textwidth}
+\includegraphics[width=\textwidth]{check_him_out.jpg}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Cleaning the stage}
+\begin{columns}
+\column{0.7\textwidth}
+Finally, what is actually happening with your commits under the hood?
+\begin{itemize}
+\item Git has a staging area before commits that can be checked with \textbf{git status}. Anything in \textcolor{green}{green} is staged.
+\item If you wish to unstage the commit, simply type \textbf{git reset}.
+\item \textbf{git reset} will work for individual files and you may go back to any commit in the history.
+        \begin{lstlisting}
+git reset HEAD~1
+        \end{lstlisting}
+\item If you wish to undo a commit entirely, use the \textbf{git revert} command.
+\item \textbf{git clean} will remove any untracked files.
+\end{itemize}
+\column{0.3\textwidth}
+\includegraphics[width=\textwidth]{the-hook.jpg}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Quick Exercise}
+    \begin{block}{EXERCISE}
+        \begin{enumerate}
+        \item Stage a commit
+        \item Unstage the commit
+        \item Make a commit
+        \item Undo the commit
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Final Comments}
+\begin{columns}
+\column{0.7\textwidth}
+\begin{itemize}
+\item git is weird. It's not intuitive, but it's the best way to collaborate with people on open projects.
+\item Whenever you are using git, think about other people and how they will perceive your comments. \textbf{Would you be able to understand your own cryptic commit messages?}
+\item You will make mistakes. Don't worry about it. Your entire history is backed up already. Learn from your mistakes and don't make them again!
+\item Listen to git. It's smarter than you.
+\end{itemize}
+\column{0.3\textwidth}
+\includegraphics[width=\textwidth]{commit_book.jpg}
+\end{columns}
+\end{frame}
+
+\end{document} 
