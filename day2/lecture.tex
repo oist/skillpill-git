@@ -1,0 +1,133 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Modified by Jeremie Gillet in November 2015 to make an OIST Skill Pill template
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+\usetheme{Madrid}
+
+\definecolor{OISTcolor}{rgb}{0.65,0.16,0.16}
+\usecolortheme[named=OISTcolor]{structure}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{textpos} % Use for positioning the Skill Pill logo
+
+% For code displays
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Skill Pill]{Skill Pill: Introduction to Git and Version Control} % The short title appears at the bottom of every slide, the full title is only on the title page
+\subtitle{Lecture 2: Git it on!}
+
+\author{\textbf{Valentin Churavy}} % Your name
+\institute[OIST] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Okinawa Institute of Science and Technology \\ % Your institution for the title page
+\textit{valentin.churavy@oist.jp} % Your email address
+}
+\date{June 2, 2016} % Date, can be changed to a custom date
+
+\begin{document}
+
+\setbeamertemplate{background}{\includegraphics[width=\paperwidth]{SPbackground.png}} % Adding the background logo
+
+\begin{frame}
+\vspace*{1.4cm}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\setbeamertemplate{background}{} % No background logo after title frame
+
+\addtobeamertemplate{frametitle}{}{% Adding the Skill Pill logo on the title screen after title frame
+\begin{textblock*}{100mm}(.8\textwidth,-1.25cm)
+\includegraphics[height=2cm]{SPwhite.png}
+\end{textblock*}}
+
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Working collaborative}
+\begin{frame}[fragile]
+\end{frame}
+\subsection{Theory block: Commits}
+\begin{frame}[fragile]
+\end{frame}
+\subsection{Remotes}
+\begin{frame}[fragile]
+\end{frame}
+\subsection{Branches}
+\begin{frame}[fragile]
+\end{frame}
+\subsection{Merging}
+\begin{frame}[fragile]
+\end{frame}
+\subsection{Rebasing}
+\begin{frame}[fragile]
+\end{frame}
+\subsection{Rewriting history}
+\begin{frame}[fragile]
+\end{frame}
+\section{Workflow}
+\begin{frame}[fragile]
+\end{frame}
+\end{document}
