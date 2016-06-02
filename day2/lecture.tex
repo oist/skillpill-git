@@ -135,22 +135,36 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 \end{frame}
 \subsection{Branches}
 \begin{frame}[fragile]
+  Since there git is decentralized there is no one state of the repository that is correct. No manage this complexity git has the notion of a branch. Branches are parallel timelines and they lightweight, so branch often and branch early.
   \begin{block}{}
     \begin{itemize}
       \item git \textbf{branch}   # Manages branches 
       \item git \textbf{checkout} # Switch between branches
     \end{itemize}
   \end{block}
+  Most repositories have a default branch called \textbf{master}. Branches are just names for points in the history.
+  Once we start working with branches we have to ask ourselves how are we going to join them back up? We can do this by performing a merge
 \end{frame}
 \subsection{Merging}
+Merging is the act of joining two branches together or to join two different branches. You will always merge \emph{from} a branch/remote into a branch.
 \begin{frame}[fragile]
   \begin{block}{}
     \begin{itemize}
       \item git \textbf{fetch} # Get remote changes
-      \item git \textbf{merge} # Merge changes
+      \item git \textbf{merge} # Merge changes (ff by default)
       \item git \textbf{add}   # Resolve merge-conflict
     \end{itemize}
+
+    Options for merge:
+    \begin{description}
+      \item[--no-commit] Performs the merge, but doesn't commit yet. Giving you the change to edit the merge commit.
+      \item[--ff-only]   Aborts when we can't perform a fast-forward merge.
+      \item[--abort]     Abort the current conflict-resolution and reset to previous state.
+    \end{description}
   \end{block}
+
+  You can visualize your history in many different ways, but the best way on the command line is.\\
+  git log \textbf{--graph --pretty --oneline}
 \end{frame}
 \subsection{Rebasing}
 \begin{frame}[fragile]
