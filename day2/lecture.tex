@@ -118,7 +118,19 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
     \item We are going to talk about Workflows at the end of the day.
   \end{itemize}
 \end{frame}
-\begin{frame}{Interlude: .gitconfig}
+\begin{frame}[fragile]{Interlude: .gitconfig}
+  The file \emph{.gitconfig} can be used to set default options per user or per project. The user files is in \emph{~/.gitconfig}. Each option can also be set with git \textbf{config}.
+  \begin{lstlisting}
+  [user]
+    email = v.churavy@gmail.com
+    name  = Valentin Churavy
+  [github]
+    user = vchuravy
+  [push]
+    default = simple
+  [rerere]
+    enabled = true
+  \end{lstlisting}
 \end{frame}
 \subsection{Remotes}
 \begin{frame}[fragile]
@@ -138,22 +150,24 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
   Since there git is decentralized there is no one state of the repository that is correct. No manage this complexity git has the notion of a branch. Branches are parallel timelines and they lightweight, so branch often and branch early.
   \begin{block}{}
     \begin{itemize}
-      \item git \textbf{branch}   # Manages branches. 
-      \item git \textbf{checkout} # Switch between branches.
-      \item git \textbf{cherry-pick} # Moving commits between branches.
+      \item git \textbf{branch}  Manages branches. 
+      \item git \textbf{checkout} Switch between branches.
+      \item git \textbf{cherry-pick} Moving commits between branches.
     \end{itemize}
   \end{block}
   Most repositories have a default branch called \textbf{master}. Branches are just names for points in the history.
-  Once we start working with branches we have to ask ourselves how are we going to join them back up? We can do this by performing a merge
+  Once we start working with branches we have to ask ourselves how are we going to join them back up? We can do this by performing a merge.
+
+  You can also associate a local branch with a remote branch by setting it as upstream. git push \textbf{-u}.
 \end{frame}
 \subsection{Merging}
-Merging is the act of joining two branches together or to join two different branches. You will always merge \emph{from} a branch/remote into a branch.
 \begin{frame}[fragile]
+Merging is the act of joining two branches together or to join two different branches. You will always merge \emph{from} a branch/remote into a branch.
   \begin{block}{}
     \begin{itemize}
-      \item git \textbf{fetch} # Get remote changes
-      \item git \textbf{merge} # Merge changes (ff by default)
-      \item git \textbf{add}   # Resolve merge-conflict
+      \item git \textbf{fetch}  Get remote changes
+      \item git \textbf{merge}  Merge changes (ff by default)
+      \item git \textbf{add}    Resolve merge-conflict
     \end{itemize}
 
     Options for merge:
@@ -178,18 +192,49 @@ Merging is the act of joining two branches together or to join two different bra
 
   \begin{block}{}
     \begin{itemize}
-      \item git pull \textbf{--ff-only}
-      \item git \textbf{rebase}
-      \item git \textbf{rebase -i}
-      \item git \textbf{push -f}
+      \item git \textbf{pull --ff-only} Don't merge if there are conflict with the remote
+      \item git \textbf{rebase} Perform a rebase
+      \item git \textbf{rebase -i} Perform a interactive rebase
+      \item git \textbf{push -f} Force push your changes
+      \item git \textbf{pull --rebase} Perform a pull with a rebase
+    \end{itemize}
+  \end{block}
+\end{frame}
+\begin{frame}[allowframebreaks]{Secrets!}
+  \begin{block}{Autosquash}
+    \begin{itemize}
+      \item git config rebase.autosquash true
+      \item git commit \textbf{--squash=}\emph{some-hash}
+      \item git commit \textbf{--fixup=}\emph{some-hash}
+     \end{itemize}
+     Autosquash will reorder the commits apropriatly before you perform a git \textbf{rebase -i}.
+  \end{block}
+  \begin{block}{Bisect}
+    You have a new test case that produces wrong results in your software. Question! When did the error first appear? Git bisect is here to help, by performing a binary search through history to find the last good commit (or the first bad commit).
+
+    This is the reason, why every commit should be functional!.
+  \end{block}
+  \framebreak
+  \begin{block}{Stash}
+    When you are moving between branches you sometines want to keep your non-commited changes associated with the branch you where doing them one.
+    \begin{itemize}
+      \item git \textbf{stash}
+      \item git \textbf{stash pop}
     \end{itemize}
   \end{block}
 \end{frame}
 \section{Workflow}
-\begin{frame}[fragile]{Chaotic singular developer}
-  Yesterday we had a bunch of people working on the master branch creating conflicts left and right. That is waht I like to call the chaotic style. 
-\end{frame}
-\begin{frame}[fragile]{Feature branches}
+\begin{frame}[fragile]{Workflows}
+  \centering
+  Storytelling from the battlefields.
 \end{frame}
 \subsection{Documentation and other helpful material}
+\begin{frame}{Documentation}
+  \begin{itemize}
+    \item The Git book: \url{https://git-scm.com/book}
+    \item The Git help/man pages: git \textbf{help} or git \emph{command} --help
+    \item Caching your password: \url{https://help.github.com/articles/caching-your-github-password-in-git/}
+    \item SSH-keys: \url{https://help.github.com/categories/ssh/} 
+  \end{itemize}
+\end{frame}
 \end{document}
