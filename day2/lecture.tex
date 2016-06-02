@@ -134,20 +134,25 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 \end{frame}
 \subsection{Remotes}
 \begin{frame}[fragile]
-  Yesterday we introduced \textbf{Github}. Github is a service that offers you a solution to remotely store your repositories. 
-  Git is \emph{Distributed} Version Control System (DVCS). Every copy of your repository, may it be remote or local, is independent of each other. There is no central master repository. 
 
-  In order to synchronize these distributed copies we introduce the concept of a remote.
+Yesterday we introduced \textbf{Github}. Github is a service that offers you a solution to remotely store your repositories. 
+\begin{itemize}
+    \item Git is \emph{Distributed} Version Control System (DVCS). Every copy of your repository, may it be remote or local, is independent of each other. There is no central master repository. 
+
+    \item In order to synchronize these distributed copies we introduce the concept of a remote.
 \pause
   \begin{block}{}
     git \textbf{remote}
   \end{block}
 \pause
-  There can be as many remotes as you want each with different names. When you clone a repository there will be one default remote called \textbf{origin}.
+  \item There can be as many remotes as you want each with different names. When you clone a repository there will be one default remote called \textbf{origin}.
+\end{itemize}
 \end{frame}
 \subsection{Branches}
 \begin{frame}[fragile]
-  Since there git is decentralized there is no one state of the repository that is correct. No manage this complexity git has the notion of a branch. Branches are parallel timelines and they lightweight, so branch often and branch early.
+  Since there git is decentralized there is no one state of the repository that is correct. To manage this complexity git has the notion of a branch. 
+  \begin{itemize}
+    \item Branches are parallel timelines and they lightweight, so branch often and branch early.
   \begin{block}{}
     \begin{itemize}
       \item git \textbf{branch}  Manages branches. 
@@ -155,10 +160,11 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
       \item git \textbf{cherry-pick} Moving commits between branches.
     \end{itemize}
   \end{block}
-  Most repositories have a default branch called \textbf{master}. Branches are just names for points in the history.
-  Once we start working with branches we have to ask ourselves how are we going to join them back up? We can do this by performing a merge.
+    \item Most repositories have a default branch called \textbf{master}. Branches are just names for points in the history.
+    \item Once we start working with branches we have to ask ourselves how are we going to join them back up? We can do this by performing a merge.
 
-  You can also associate a local branch with a remote branch by setting it as upstream. git push \textbf{-u}.
+    \item You can also associate a local branch with a remote branch by setting it as upstream. git push \textbf{-u}.
+  \end{itemize}
 \end{frame}
 \subsection{Merging}
 \begin{frame}[fragile]
@@ -179,7 +185,9 @@ Merging is the act of joining two branches together or to join two different bra
   \end{block}
 
   You can visualize your history in many different ways, but the best way on the command line is.\\
+  \begin{block}{}
   git log \textbf{--graph --pretty --oneline}
+  \end{block}
 \end{frame}
 \subsection{Rebasing and Rewriting history}
 \begin{frame}[fragile]
@@ -210,7 +218,7 @@ Merging is the act of joining two branches together or to join two different bra
      Autosquash will reorder the commits apropriatly before you perform a git \textbf{rebase -i}.
   \end{block}
   \begin{block}{Bisect}
-    You have a new test case that produces wrong results in your software. Question! When did the error first appear? Git bisect is here to help, by performing a binary search through history to find the last good commit (or the first bad commit).
+    You have a new test case that produces wrong results in your software. Question! When did the error first appear? \textbf{Git bisect} is here to help, by performing a binary search through history to find the last good commit (or the first bad commit).
 
     This is the reason, why every commit should be functional!.
   \end{block}
