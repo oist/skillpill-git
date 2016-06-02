@@ -138,8 +138,9 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
   Since there git is decentralized there is no one state of the repository that is correct. No manage this complexity git has the notion of a branch. Branches are parallel timelines and they lightweight, so branch often and branch early.
   \begin{block}{}
     \begin{itemize}
-      \item git \textbf{branch}   # Manages branches 
-      \item git \textbf{checkout} # Switch between branches
+      \item git \textbf{branch}   # Manages branches. 
+      \item git \textbf{checkout} # Switch between branches.
+      \item git \textbf{cherry-pick} # Moving commits between branches.
     \end{itemize}
   \end{block}
   Most repositories have a default branch called \textbf{master}. Branches are just names for points in the history.
@@ -166,8 +167,15 @@ Merging is the act of joining two branches together or to join two different bra
   You can visualize your history in many different ways, but the best way on the command line is.\\
   git log \textbf{--graph --pretty --oneline}
 \end{frame}
-\subsection{Rebasing}
+\subsection{Rebasing and Rewriting history}
 \begin{frame}[fragile]
+  Rebases are a way to create fast-forward merges, by altering \emph{history}. Each branch has a root commit from which it diverged from the original commit. By rebasing we change this root. This has a couple of side effects. 
+  \begin{itemize}
+    \item Linear commit history.
+    \item No merge commits within a branch.
+    \item commit-ids change.
+  \end{itemize}
+
   \begin{block}{}
     \begin{itemize}
       \item git pull \textbf{--ff-only}
@@ -177,10 +185,11 @@ Merging is the act of joining two branches together or to join two different bra
     \end{itemize}
   \end{block}
 \end{frame}
-\subsection{Rewriting history}
-\begin{frame}[fragile]
-\end{frame}
 \section{Workflow}
-\begin{frame}[fragile]
+\begin{frame}[fragile]{Chaotic singular developer}
+  Yesterday we had a bunch of people working on the master branch creating conflicts left and right. That is waht I like to call the chaotic style. 
 \end{frame}
+\begin{frame}[fragile]{Feature branches}
+\end{frame}
+\subsection{Documentation and other helpful material}
 \end{document}
