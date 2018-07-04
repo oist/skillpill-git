@@ -114,9 +114,10 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 
 \begin{frame}[fragile]
 \frametitle{Version Control}
-\includegraphics[width=\textwidth]{Multiverse.jpg}
+\begin{center}\includegraphics[width=0.7\textwidth]{Multiverse.jpg}\end{center}
 \begin{itemize}
 \item Version control is a method that allows you to control different versions of things (Not necessarily universes).
+\item Version control stores history and allows restoration to specific points in that history.
 \end{itemize}
 
 \end{frame}
@@ -129,10 +130,11 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 
 \column{0.7\textwidth}
 \begin{itemize}
-\item We had a terminal skill pill and I have included the cheatsheet from that. 
-\item There is a GUI downloadable from GitHub called the \textbf{GitHub Desktop}. We will not be using this for religious reasons.
+\item There was a terminal skill pill and I have included the cheatsheet from that. % Get this and arrange for it to be included...
+\item There are multiple GUIs available for Git, such as one downloadable from GitHub called the \textbf{GitHub Desktop}. We will not be using this for \sout{religious} totally valid reasons.
+\item These reasons primarily revolve around flexibility and improved understanding of the Git tools.
 \item Everything we do will be usable on Sango.
-\item We will be using a cheatsheet from here: \href{https://www.git-tower.com/learn/cheat-sheets/git}{\textbf{\color{blue}{https://www.git-tower.com/learn/cheat-sheets/git}}}
+\item There is a cheatsheet for Git available here: \href{https://www.git-tower.com/learn/cheat-sheets/git}{\textbf{\color{blue}{https://www.git-tower.com/learn/cheat-sheets/git}}}
 \end{itemize}
 
 \column{0.3\textwidth}
@@ -151,7 +153,8 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 \item A \textbf{repository} is a place to store code.
 \begin{itemize}
 \item There are many sites to host your repository on (github, bitbucket), including your own local machine.
-\item All of the essential parts of your repository can be found in \textbf{.git} directory
+\item All of the essential parts of your repository can be found in the\textbf{.git} directory
+\item GitHub (a website hosting Git repositories) $\neq$ Git (a set of tools for creating and managing those repositories).
 \end{itemize}
 
 \end{itemize}
@@ -167,11 +170,11 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 Let's \textbf{git} started.
 \begin{itemize}
 \item To initialize a git repository, simply type \textbf{git init} in a directory (preferably empty for now)
-\item This creates a folder \textbf{.git/}, where all your git information is held.
+\item This creates a folder \textbf{.git/}, where all your repository information is held.
 \item Git tracks \textbf{commits}. Check these commits with \textbf{git log}.
 \item \textbf{git status} checks any changes since the last commit.
 \item \textbf{git add} adds new files.
-\item \textbf{git commit} commits anything git status shows in \color{green}{green}.
+\item \textbf{git commit} commits anything in the \textit{staging area} - git status shows these files in {\color{dkgreen}green} by default.
 \end{itemize}
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{git.jpg}
@@ -208,6 +211,7 @@ Let's \textbf{git} started.
 *.gz
 *.exe
 *.dat
+*.lvlps
 \end{lstlisting}
 \column{0.5\textwidth}
 \includegraphics[width=\textwidth]{IIB.jpg}
