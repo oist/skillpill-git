@@ -338,7 +338,7 @@ Finally, what is actually happening with your commits under the hood?
 git reset HEAD~1
         \end{lstlisting}
 \item If you wish to undo a commit entirely, use the \textbf{git revert} command.
-\item \textbf{git clean} will remove any untracked files.
+\item \textbf{git clean} (with appropriate flags!) will remove any untracked files.
 \end{itemize}
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{the-hook.jpg}
@@ -352,7 +352,7 @@ git reset HEAD~1
         \item Stage a commit
         \item Unstage the commit
         \item Make a commit
-        \item Undo the commit
+        \item Undo the commit (\textbf{DON'T DO THIS AFTER YOU PUSH!!!!!!11111!!!11!!})
         \end{enumerate}
     \end{block}
 
@@ -366,12 +366,13 @@ git reset HEAD~1
 \column{0.7\textwidth}
 \begin{itemize}
 \item git is weird. It's not intuitive, but it's the best way to collaborate with people on open projects.
+\item It's also great even if you don't collaborate!
 \item Whenever you are using git, think about other people and how they will perceive your comments. \textbf{Would you be able to understand your own cryptic commit messages?}
 \item You will make mistakes. Don't worry about it. Your entire history is backed up already. Learn from your mistakes and don't make them again!
-\item Listen to git. It's smarter than you.
+\item Read error messages carefully - they can be useful/informative/instructive.
 \end{itemize}
 \column{0.3\textwidth}
-\includegraphics[width=\textwidth]{commit_book.jpg}
+\includegraphics[width=\textwidth]{light-bulb.jpg}
 \end{columns}
 \end{frame}
 
