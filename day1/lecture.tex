@@ -35,6 +35,7 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{textpos} % Use for positioning the Skill Pill logo
+\usepackage{transparent} % For transparency with images
 
 \usepackage{ulem} % For strikethrough.
 
@@ -84,7 +85,7 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 
 \begin{document}
 
-\setbeamertemplate{background}{\includegraphics[width=\paperwidth]{SPbackground.png}} % Adding the background logo
+\setbeamertemplate{background}{\transparent{0.65}\includegraphics[width=\paperwidth]{SPbackground.png}} % Adding the background logo
 
 \begin{frame}
 \vspace*{1.4cm}
@@ -239,15 +240,19 @@ Let's \textbf{git} started.
 \column{0.7\textwidth}
 Now we move to the fun* stuff: working with \textbf{online repositories}.
 \begin{itemize}
-\item For this, we will be using \textbf{github}. 
-\item To use an online repository, we need to synchronize our local machine with the master repository held elsewhere. This is done with the \textbf{clone} command.
+\item For this, we will be using \textbf{github}.
+\item We'll begin by creating a GitHub repository using the \href{www.github.com}{website}.
+\begin{itemize}
+\item If we're working on a project that's already hosted on a remote Git server, we can skip this step.
+\end{itemize}
+\item Next, we use \textbf{git clone} to download a copy.
 \item From here, you can do the following:
 \begin{itemize}
 \item \textbf{git push} to push any changes you may have to the online repository.
-\item \textbf{git pull} to take any changes from the 
+\item \textbf{git pull} to take any changes from the repository.
 \end{itemize}
 \end{itemize}
-\column{0.3\textwidth}
+\column{0.28\textwidth}
 \includegraphics[width=\textwidth]{clone.jpg}
 \end{columns}
 
@@ -258,7 +263,8 @@ Now we move to the fun* stuff: working with \textbf{online repositories}.
 \frametitle{Quick Exercise}
     \begin{block}{EXERCISE}
         \begin{enumerate}
-        \item Clone our skillpill repository (or a similar repository):
+        \item Create a new GitHub repository using a browser.
+        \item Clone the new repository* to our local disk:
         \begin{lstlisting}
 git clone git@github.com:oist/skillpill-git.git
         \end{lstlisting}
@@ -266,10 +272,11 @@ git clone git@github.com:oist/skillpill-git.git
         \begin{lstlisting}
 git clone https://github.com/oist/skillpill-git.git
         \end{lstlisting}
-        \item Working with a small group, make commits and push and pull stuff from that repo.
+        \item Make some simple commits and test the process of \textbf{push}ing and (with the help of a partner) \textbf{pull}ing stuff from that repo.
         \end{enumerate}
     \end{block}
 
+*The examples here show cloning the SkillPill Git repository - replace the links as appropriate!
 \end{frame}
 
 \begin{frame}
@@ -277,18 +284,21 @@ git clone https://github.com/oist/skillpill-git.git
 \begin{columns}
 \column{0.6\textwidth}
 \begin{itemize}
-\item git is not intuitive to start with, but it's the best way to work collaboratively with other people.
+\item git is not intuitive to start with, but it's %the best way to work collaboratively with other people.
+a powerful tool for storing and restoring history, and working collaboratively with other people.
 \item The more you use it, the more you will like it. Think Stockholm syndrome.
+\item Operations that you use frequently will become easy.
+\item Operations you use infrequently, you can Google!
 \end{itemize}
 \column{0.4\textwidth}
 \includegraphics[width=\textwidth]{gitxkcd.png}
 \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{A fear of commitment}
-\includegraphics[width=\textwidth]{no_commit.jpg}
-\end{frame}
+%\begin{frame}[fragile]
+%\frametitle{A fear of commitment}
+%\includegraphics[width=\textwidth]{no_commit.jpg}
+%\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Write clear commit messages!}
@@ -310,7 +320,8 @@ git checkout a1e8fb5 hello.py
 \item This command will be used later, so keep it in mind! 
 \end{itemize}
 \column{0.3\textwidth}
-\includegraphics[width=\textwidth]{check_him_out.jpg}
+\includegraphics[width=\textwidth]{basic-usage.png}
+% http://marklodato.github.io/visual-git-guide/index-en.html
 \end{columns}
 \end{frame}
 
@@ -320,7 +331,7 @@ git checkout a1e8fb5 hello.py
 \column{0.7\textwidth}
 Finally, what is actually happening with your commits under the hood?
 \begin{itemize}
-\item Git has a staging area before commits that can be checked with \textbf{git status}. Anything in \textcolor{green}{green} is staged.
+\item Git has a staging area before commits that can be checked with \textbf{git status}. Anything in \textcolor{dkgreen}{green} is staged.
 \item If you wish to unstage the commit, simply type \textbf{git reset}.
 \item \textbf{git reset} will work for individual files and you may go back to any commit in the history.
         \begin{lstlisting}
