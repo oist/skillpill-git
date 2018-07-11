@@ -152,7 +152,7 @@ Yesterday we introduced \textbf{Github}. Github is a service that offers you a s
 \begin{frame}
   \begin{block}{Exercise}
     \begin{enumerate}
-      \item Clone a repository from Github
+      \item Clone our repository from Github: \url{https://github.com/oist/skillpill-git}
       \item Fork it
       \item Add your fork of the repository as a remote to your local repository
       \item Push a change to your fork
@@ -193,7 +193,7 @@ Yesterday we introduced \textbf{Github}. Github is a service that offers you a s
 Merging is the act of joining two branches together or to join two different branches. You will always merge \emph{from} a branch/remote into a branch.
   \begin{block}{}
     \begin{itemize}
-      \item git \textbf{fetch}  Get remote changes
+      \item git \textbf{fetch}  Gets remote changes
       \item git \textbf{merge}  Merge changes (ff by default)
       \item git \textbf{add}    Resolve merge-conflict
     \end{itemize}
@@ -249,19 +249,20 @@ Merging is the act of joining two branches together or to join two different bra
     \end{enumerate}
   \end{block}
 \end{frame}
-\begin{frame}[allowframebreaks]{Secrets!}
+\begin{frame}[allowframebreaks,fragile]{Secrets!}
   \begin{block}{Autosquash}
     \begin{itemize}
       \item git config rebase.autosquash true
       \item git commit \textbf{--squash=}\emph{some-hash}
       \item git commit \textbf{--fixup=}\emph{some-hash}
      \end{itemize}
-     Autosquash will reorder the commits apropriatly before you perform a git \textbf{rebase -i}.
+     Autosquash will reorder the commits appropriatly before you perform a git \textbf{rebase -i}.
   \end{block}
-  \begin{block}{Bisect}
-    You have a new test case that produces wrong results in your software. Question! When did the error first appear? \textbf{Git bisect} is here to help, by performing a binary search through history to find the last good commit (or the first bad commit).
-
-    This is the reason, why every commit should be functional!.
+  \begin{block}{Blame}
+    There is no such thing as \textit{good} code. If you are using git with people, chances are that something will break at some time and you need someone to blame. That's what git blame is for:
+    \begin{lstlisting}
+        git blame -L 1,3 file
+    \end{lstlisting}
   \end{block}
   \framebreak
   \begin{block}{Stash}
