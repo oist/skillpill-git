@@ -35,6 +35,7 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{textpos} % Use for positioning the Skill Pill logo
+\usepackage{tikz} % Allow modification of transparency for title slide image
 
 % For code displays
 \usepackage{listings}
@@ -72,17 +73,20 @@
 \title[Skill Pill]{Skill Pill: Introduction to Git and Version Control} % The short title appears at the bottom of every slide, the full title is only on the title page
 \subtitle{Lecture 2: Git it on!}
 
-\author{James Schloss and \textbf{Valentin Churavy}} % Your name
+\author[Christian Butcher] % Shows on every footer
+	{\textbf{Valentin Churavy - 2016} \\ James Schloss - 2018 \\ Christian Butcher - 2019} % Title slide names
 \institute[OIST] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
 Okinawa Institute of Science and Technology \\ % Your institution for the title page
-\textit{valentin.churavy@oist.jp} % Your email address
+\textit{christian.butcher@oist.jp} % Your email address
 }
-\date{\today} % Date, can be changed to a custom date
+\date{August 14, 2019} % Date, can be changed to a custom date
 
 \begin{document}
 
-\setbeamertemplate{background}{\includegraphics[width=\paperwidth]{SPbackground.png}} % Adding the background logo
+\setbeamertemplate{background}{
+\begin{tikzpicture}\node[opacity=0.6]{\includegraphics[width=\paperwidth]{SPbackground.png}}; % Adding the background logo
+\end{tikzpicture}}
 
 \begin{frame}
 \vspace*{1.4cm}
