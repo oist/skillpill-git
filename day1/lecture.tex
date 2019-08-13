@@ -81,7 +81,7 @@
 Okinawa Institute of Science and Technology \\ % Your institution for the title page
 %\textit{james.schloss@oist.jp} % Your email address
 }
-\date{July 10, 2018} % Date of the presentation
+\date{Augest 13, 2019} % Date of the presentation
 
 \begin{document}
 
@@ -136,10 +136,10 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 
 \column{0.7\textwidth}
 \begin{itemize}
-\item There was a terminal skill pill and I have included the cheatsheet from that. % Get this and arrange for it to be included...
-\item There are multiple GUIs available for Git, such as one downloadable from GitHub called the \textbf{GitHub Desktop}. We will not be using this for \sout{religious} totally valid reasons.
+\item There are multiple GUIs available for Git, such as one from GitHub called the \textbf{GitHub Desktop}. We will not be using this for \sout{religious} perfectly scientific reasons.
 \item These reasons primarily revolve around flexibility and improved understanding of the Git tools.
 \item Everything we do will be usable on Sango.
+\item The \textbf{Pro Git} book is available online at \href{https://git-scm.com/book/}{\textbf{\color{blue}{git-scm.com/book}}}
 \item There is a cheatsheet for Git available here: \href{https://www.git-tower.com/learn/cheat-sheets/git}{\textbf{\color{blue}{https://www.git-tower.com/learn/cheat-sheets/git}}}
 \end{itemize}
 
@@ -159,7 +159,7 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 \item A \textbf{repository} is a place to store code.
 \begin{itemize}
 \item There are many sites to host your repository on (github, bitbucket), including your own local machine.
-\item All of the essential parts of your repository can be found in the\textbf{.git} directory
+\item All of the essential parts of your repository can be found in the \textbf{.git} directory
 \item GitHub (a website hosting Git repositories) $\neq$ Git (a set of tools for creating and managing those repositories).
 \end{itemize}
 
@@ -312,22 +312,22 @@ a powerful tool for storing and restoring history, and working collaboratively w
 
 \begin{frame}[fragile]
 \frametitle{Checking out your versions}
-\begin{columns}
-\column{0.7\textwidth}
+%\begin{columns}
+%\column{0.7\textwidth}
 We now know how to work with both local and online repositories, but what about using different versions?
 \begin{itemize}
-\item \textbf{git checkout} allows you to view the repository at any old commit (found with \textbf{git log}).
-\item You may also checkout specific files like so:
+\item \textbf{git checkout} allows you to view the repository at any commit (found with \textbf{git log}).
+\item You may also checkout specific files like so: 
         \begin{lstlisting}
 git checkout a1e8fb5 hello.py
         \end{lstlisting}
 \item Note that the most recent commit is \textbf{HEAD} and the one just before that is \textbf{HEAD$\mathbf{\sim}$1}
 \item This command will be used later, so keep it in mind! 
 \end{itemize}
-\column{0.3\textwidth}
-\includegraphics[width=\textwidth]{basic-usage.png}
+%\column{0.3\textwidth}
+%\includegraphics[width=\textwidth]{basic-usage.png}
 % http://marklodato.github.io/visual-git-guide/index-en.html
-\end{columns}
+%\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -348,6 +348,19 @@ git reset HEAD~1
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{the-hook.jpg}
 \end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{File Lifecycle}
+\begin{center}
+\includegraphics[width=0.75\textwidth]{lifecycle.png}
+\end{center}
+\begin{itemize}
+\item A new file is initially \textbf{untracked}
+\item When you use \textbf{git add}, it moves to the staging area and becomes \textbf{staged}
+\item After being committed (using \textbf{git commit}), a file is up-to-date and considered \textbf{unmodified}
+\item Changing a file makes it modified, but doesn't add it to the staging area
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
