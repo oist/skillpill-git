@@ -165,16 +165,112 @@ Yesterday we introduced \textbf{GitHub}. GitHub is a service that offers you a s
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Exercise}
+  \begin{block}{Exercise 1a}
     \begin{enumerate}
-      \item Clone our repository from GitHub: \url{https://github.com/oist/skillpill-git}
-      \item Fork it
-      \item Add your fork of the repository as a remote to your local repository
-      \item Push a change to your fork
-      \item Open a pull request on GitHub against the original repository
+      \item Tell Jeremie your GitHub user name so you can be added to the allowed committers for the repository...
+      \item Clone this repository from GitHub: \url{https://github.com/oist/skillpill-git-group1}
+      \item Add your favourite color to the colors file.
+      \item Commit your change with an appropriate message, but don\rq{}t \textbf{push}!
     \end{enumerate}
   \end{block}
 \end{frame}
+
+\begin{frame}
+  \begin{block}{1b: Alternative Exercise if I can\rq{}t get access to the repository...}
+    \begin{enumerate}
+      \item Create an empty directory for your repositories (note plural)
+      \item In this directory, \texttt{A}, create a new directory, called \lq{}myremote\rq{} (or change as needed below).
+      \item Change into this new directory, and run \texttt{git init --bare}. This creates a \lq{}bare\rq{} repository, in which nothing is checked out.
+      \item Move back into directory A. Create a new directory, and then run \texttt{git init} (not bare), add a file, and commit it.
+      \item Run the command \texttt{git remote add origin ../myremote/}, which adds a remote repository called \lq{}origin\rq{}, pointing to the directory \lq{}myremote\rq{}.
+    \end{enumerate}
+  \end{block}
+\end{frame}
+\begin{frame}
+  \begin{block}{1b: Alternative Exercise Continued...}
+    \begin{enumerate}
+      \setcounter{enumi}{5} % Continue counting from 6 (5 points in previous slide)
+      \item Push your commit with the command \texttt{git push -u origin master}, which sets your branch to track the new branch \lq{}master\rq{} on \lq{}origin\rq{}.
+      \item Go back to A. Clone your \lq{}myremote\rq{} repository with the command \texttt{git clone myremote secondcopy} (a new directory named \lq{}secondcopy\rq{} will be created).
+      \item Make changes to your file in both your first repository, and \lq{}secondcopy\rq{} (not \lq{}myremote\rq{}). Commit both. Push from only the first repository (not \lq{}secondcopy\rq{}).
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+
+\subsection{Merging}
+\begin{frame}[fragile]{Merging - An Introduction}
+  \begin{itemize}
+    \item We perform \textit{merges} to \lq\lq{}join two or more development histories together\rq\rq{}.
+    \item It is most commonly performed invisibly by \texttt{git pull} and performs by default a \lq\lq{}fast-forward\rq\rq{} merge.
+    \item We usually see this first when we try to pull some changes and we cannot perform a fast-forward merge.
+    \item In that case, we have to resolve the \textit{merge conflict}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Merging}
+Merging is the act of joining two branches together or to join two different branches. You will always merge \emph{from} a branch/remote into a branch.
+  \begin{block}{}
+    \begin{itemize}
+      \item git \textbf{fetch}  Gets remote changes
+      \item git \textbf{merge}  Merge changes (ff by default)
+      \item git \textbf{add}    Resolve merge-conflict
+    \end{itemize}
+
+    Options for merge:
+    \begin{description}
+      \item[--no-commit] Performs the merge, but doesn't commit yet. Giving you the change to edit the merge commit.
+      \item[--ff-only]   Aborts when we can't perform a fast-forward merge.
+      \item[--abort]     Aborts current conflict-resolution and reset to previous state.
+    \end{description}
+  \end{block}
+
+  You can visualize your history in many different ways, but the best way on the command line is.\\
+  \begin{block}{}
+  git log \textbf{--graph --decorate --oneline}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Exercise - Assuming we did Exercise 1a}
+    \begin{enumerate}
+      \item Try to push your changes to the \lq{}colors\rq{} file with \textbf{git push}
+      \item You\rq{}ll receive a message indicating that there are remote changes, and instructing you to use \textbf{git pull}
+      \item Use \textbf{git pull} to trigger a merge conflict
+      \item Use a text editor to resolve the conflict
+      \begin{itemize}
+        \item There will be lines like \texttt{<<<<<<< HEAD}, \texttt{=======} and \texttt{>>>>>>> 1a2bde2189}
+        \item Your changes are marked by the section between \texttt{HEAD} and the \texttt{=======} line
+        \item Update the file to reflect the new version you expect
+      \end{itemize}
+      \item Commit the resolved file (don\rq{}t forget to \textbf{add})
+      \item Try to push your branch again. If someone else already did, you\rq{}ll be back at the beginning!
+      \item Obviously this can be annoying - we\rq{}ll look at Pull Requests (a GitHub feature) later as a different way to handle this in bigger repositories
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Exercise - Assuming we did Exercise 1b}
+    \begin{enumerate}
+      \item Go into your \lq{}secondcopy\rq{} directory and try to \textbf{push} the changes
+      \item You\rq{}ll receive a message indicating that there are remote changes, and instructing you to use \textbf{git pull}
+      \item Use \textbf{git pull} to trigger a merge conflict
+      \item Use a text editor to resolve the conflict
+      \begin{itemize}
+        \item There will be lines like \texttt{<<<<<<< HEAD}, \texttt{=======} and \texttt{>>>>>>> 1a2bde2189}
+        \item Your changes are marked by the section between \texttt{HEAD} and the \texttt{=======} line
+        \item Update the file to reflect the new version you expect
+      \end{itemize}
+      \item Commit the resolved file (don\rq{}t forget to \textbf{add})
+      \item Push again. You should now manage to update the \lq{}remote\rq{} repository
+      \item Go into your first directory and use \textbf{git pull} to get the changes you just made
+      \item Both of your repository copies are now up to date with \texttt{myremote}
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+
 \subsection{Branches}
 \begin{frame}[fragile]{Branches}
   Since there git is decentralized there is no one state of the repository that is correct. To manage this complexity git has the notion of a branch. 
@@ -227,9 +323,11 @@ Yesterday we introduced \textbf{GitHub}. GitHub is a service that offers you a s
 \begin{frame}
   \begin{block}{Exercise}
     \begin{enumerate}
-      \item Merge your branch onto master
-      \item Create a file with some content, branch and change the contents both in master and the new branch
-      \item Merge the two branches and correct the merge conflicts
+      \item Clone our repository from GitHub: \url{https://github.com/oist/skillpill-git}
+      \item Fork it
+      \item Add your fork of the repository as a remote to your local repository
+      \item Push a change to your fork
+      \item Open a pull request on GitHub against the original repository
     \end{enumerate}
   \end{block}
 \end{frame}
