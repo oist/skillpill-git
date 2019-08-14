@@ -112,17 +112,23 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 %----------------------------------------------------------------------------------------
 
 %------------------------------------------------
-\section{Working collaborative}
-\begin{frame}[fragile]
-  \centering
-  \includegraphics[width=0.7\linewidth]{Incaseoffire}
+
+\section{Recap}
+\begin{frame}[fragile]{Recap}
+  Yesterday we covered (don't forget to prefix with \textbf{git}):
   \begin{itemize}
-    \item Everything we will work on today will be helpful if you work solo.
-    \item These things will become really useful once you work with multiple people.
-    \pause
-    \item The most useful tip I can give you is: Consistency \& Discipline.
-    \item We are going to talk about Workflows at the end of the day.
+    \item \textbf{clone} : Cloning a repository into a new directory
+    \item \textbf{add} : Add file contents to the \textit{index}. This makes git track the file.
+    \item \textbf{commit} : Record changes. Store the staged files as a new part of the history!
+    \item \textbf{pull} : Updating from a \textit{remote}. Technicially a combination of \textbf{fetch} and \textbf{merge} by default.
+    \item \textbf{push} : Update remote \textit{refs} and objects.
   \end{itemize}
+  
+  \textit{remote} : Another git repository. We used GitHub to provide this.
+  
+  \textit{index} : A single, large, binary file listing all files in the current branch with some extra information. Reflects the \lq\lq{}proposed next commit\rq\rq{}.
+  
+  \textit{refs} : Short for references. Can point to almost anything in git.
 \end{frame}
 \begin{frame}[fragile]{Interlude: .gitconfig}
   The file \emph{.gitconfig} can be used to set default options per user or per project. The user files is in \emph{\textasciitilde/.gitconfig}. Each option can also be set with git \textbf{config}.
