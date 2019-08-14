@@ -130,36 +130,40 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
   
   \textit{refs} : Short for references. Can point to almost anything in git.
 \end{frame}
-\begin{frame}[fragile]{Interlude: .gitconfig}
-  The file \emph{.gitconfig} can be used to set default options per user or per project. The user files is in \emph{\textasciitilde/.gitconfig}. Each option can also be set with git \textbf{config}.
-  \begin{lstlisting}
-  [user]
-    email = v.churavy@gmail.com
-    name  = Valentin Churavy
-  [github]
-    user = vchuravy
-  [push]
-    default = simple
-  [rerere]
-    enabled = true
-  \end{lstlisting}
+
+\begin{frame}[fragile]{Tips so far...}
+  \begin{itemize}
+    \item You can use \texttt{git help <command>} or \texttt{git <command> --help} to get information about a command, like \texttt{clone}.
+    \item \texttt{git add \textbf{-p}} uses \textit{patch mode} to interactively add parts of a file. \textbf{-i} is interactive without patch mode.
+    \item \texttt{git rm} can be used to remove files from the index (and optionally working directory), whilst \texttt{git mv} can help you move files within the repository.
+    \item \texttt{git commit --amend} opens an editor to alter the previous commit's message. Don't do this if you already \textbf{push}ed the commit!
+  \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]{Reset and Checkout}
+  We also considered \textbf{reset} and \textbf{revert}.
+  \begin{itemize}
+    \item Reset is a fairly complicated tool, which modifies the three \lq{}trees\rq{} we have briefly mentioned/considered - \texttt{HEAD} (your last commit), \texttt{index} (the staging area) and the \texttt{working directory}.
+    \item If you\rq{}re interested to know more about this tool, there is a long and informative guide at \url{https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified}.
+    \item This content is really beyond the scope of our Skill Pill. :(
+  \end{itemize}
+\end{frame}
+
+
+\section{Working with Remotes}
 \subsection{Remotes}
 \begin{frame}[fragile]{Remotes}
-
 Yesterday we introduced \textbf{GitHub}. GitHub is a service that offers you a solution to remotely store your repositories.
 \begin{itemize}
     \item Git is \emph{Distributed} Version Control System (DVCS). Every copy of your repository, may it be remote or local, is independent of each other. There is no central master repository. 
-
     \item In order to synchronize these distributed copies we introduce the concept of a remote.
-\pause
   \begin{block}{}
     git \textbf{remote}
   \end{block}
-\pause
   \item There can be as many remotes as you want each with different names. When you clone a repository there will be one default remote called \textbf{origin}.
 \end{itemize}
 \end{frame}
+
 \begin{frame}
   \begin{block}{Exercise}
     \begin{enumerate}
@@ -199,29 +203,26 @@ Yesterday we introduced \textbf{GitHub}. GitHub is a service that offers you a s
     \end{enumerate}
   \end{block}
 \end{frame}
-\subsection{Merging}
-\begin{frame}[fragile]{Merging}
-Merging is the act of joining two branches together or to join two different branches. You will always merge \emph{from} a branch/remote into a branch.
-  \begin{block}{}
-    \begin{itemize}
-      \item git \textbf{fetch}  Gets remote changes
-      \item git \textbf{merge}  Merge changes (ff by default)
-      \item git \textbf{add}    Resolve merge-conflict
-    \end{itemize}
 
-    Options for merge:
-    \begin{description}
-      \item[--no-commit] Performs the merge, but doesn't commit yet. Giving you the change to edit the merge commit.
-      \item[--ff-only]   Aborts when we can't perform a fast-forward merge.
-      \item[--abort]     Aborts current conflict-resolution and reset to previous state.
-    \end{description}
-  \end{block}
 
-  You can visualize your history in many different ways, but the best way on the command line is.\\
-  \begin{block}{}
-  git log \textbf{--graph --decorate --oneline}
-  \end{block}
+
+
+\section{Working collaborative}
+\begin{frame}[fragile]{Interlude: .gitconfig}
+  The file \emph{.gitconfig} can be used to set default options per user or per project. The user files is in \emph{\textasciitilde/.gitconfig}. Each option can also be set with git \textbf{config}.
+  \begin{lstlisting}
+  [user]
+    email = v.churavy@gmail.com
+    name  = Valentin Churavy
+  [github]
+    user = vchuravy
+  [push]
+    default = simple
+  [rerere]
+    enabled = true
+  \end{lstlisting}
 \end{frame}
+
 
 \begin{frame}
   \begin{block}{Exercise}
@@ -232,6 +233,7 @@ Merging is the act of joining two branches together or to join two different bra
     \end{enumerate}
   \end{block}
 \end{frame}
+
 
 \subsection{Rebasing and Rewriting history}
 \begin{frame}[fragile]{Rewriting History}
@@ -297,6 +299,7 @@ Merging is the act of joining two branches together or to join two different bra
   \end{itemize}
 \end{frame}
 
+
 \section{Workflow}
 \begin{frame}{Workflows}
   \centering
@@ -313,5 +316,6 @@ Merging is the act of joining two branches together or to join two different bra
     \item Understand .git \url{https://medium.freecodecamp.com/understanding-git-for-real-by-exploring-the-git-directory-1e079c15b807}
   \end{itemize}
 \end{frame}
+
 
 \end{document}
