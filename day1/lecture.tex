@@ -169,6 +169,52 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 
 \end{frame}
 
+\begin{frame}
+\frametitle{File Lifecycle}
+\begin{center}
+\includegraphics[width=0.75\textwidth]{lifecycle.png}
+\end{center}
+\begin{itemize}
+\item A new file is initially \textbf{untracked}
+\item When you use \textbf{git add}, it moves to the staging area and becomes \textbf{staged}
+\item After being committed (using \textbf{git commit}), a file is up-to-date and considered \textbf{unmodified}
+\item Changing a file makes it modified, but doesn't add it to the staging area
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Cleaning the stage}
+\begin{columns}
+\column{0.7\textwidth}
+Finally, what is actually happening with your commits under the hood?
+\begin{itemize}
+\item Git has a staging area before commits that can be checked with \textbf{git status}. Anything in \textcolor{dkgreen}{green} is staged.
+\item If you wish to unstage the commit, simply type \textbf{git reset}.
+\item \textbf{git reset} will work for individual files and you may go back to any commit in the history.
+        \begin{lstlisting}
+git reset HEAD~1
+        \end{lstlisting}
+\item If you wish to undo a commit entirely, use the \textbf{git revert} command.
+\item \textbf{git clean} (with appropriate flags!) will remove any untracked files.
+\end{itemize}
+\column{0.3\textwidth}
+\includegraphics[width=\textwidth]{the-hook.jpg}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Quick Exercise}
+    \begin{block}{EXERCISE}
+        \begin{enumerate}
+        \item Stage a commit
+        \item Unstage the commit
+        \item Make a commit
+        \item Undo the commit (\textbf{DON'T DO THIS AFTER YOU PUSH!!!!!!11111!!!11!!})
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
 \begin{frame}[fragile]
 \frametitle{The local repo}
 \begin{columns}
@@ -328,52 +374,6 @@ git checkout a1e8fb5 hello.py
 %\includegraphics[width=\textwidth]{basic-usage.png}
 % http://marklodato.github.io/visual-git-guide/index-en.html
 %\end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Cleaning the stage}
-\begin{columns}
-\column{0.7\textwidth}
-Finally, what is actually happening with your commits under the hood?
-\begin{itemize}
-\item Git has a staging area before commits that can be checked with \textbf{git status}. Anything in \textcolor{dkgreen}{green} is staged.
-\item If you wish to unstage the commit, simply type \textbf{git reset}.
-\item \textbf{git reset} will work for individual files and you may go back to any commit in the history.
-        \begin{lstlisting}
-git reset HEAD~1
-        \end{lstlisting}
-\item If you wish to undo a commit entirely, use the \textbf{git revert} command.
-\item \textbf{git clean} (with appropriate flags!) will remove any untracked files.
-\end{itemize}
-\column{0.3\textwidth}
-\includegraphics[width=\textwidth]{the-hook.jpg}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{File Lifecycle}
-\begin{center}
-\includegraphics[width=0.75\textwidth]{lifecycle.png}
-\end{center}
-\begin{itemize}
-\item A new file is initially \textbf{untracked}
-\item When you use \textbf{git add}, it moves to the staging area and becomes \textbf{staged}
-\item After being committed (using \textbf{git commit}), a file is up-to-date and considered \textbf{unmodified}
-\item Changing a file makes it modified, but doesn't add it to the staging area
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Quick Exercise}
-    \begin{block}{EXERCISE}
-        \begin{enumerate}
-        \item Stage a commit
-        \item Unstage the commit
-        \item Make a commit
-        \item Undo the commit (\textbf{DON'T DO THIS AFTER YOU PUSH!!!!!!11111!!!11!!})
-        \end{enumerate}
-    \end{block}
-
 \end{frame}
 
 \section{Working alone}
