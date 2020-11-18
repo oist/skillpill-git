@@ -169,22 +169,11 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 \begin{center}\includegraphics[width=0.9\textwidth]{versioning.png}\end{center}
 \end{frame}
 
-
-\begin{frame}[fragile]
-\frametitle{Version Control}
-\begin{center}\includegraphics[width=0.7\textwidth]{Multiverse.jpg}\end{center}
-\begin{itemize}
-\item Version control is a method that allows you to control different versions of things.
-\item Version control stores history and allows restoration to specific points in that history.
-\end{itemize}
-\end{frame}
-
 \section{Terminal Talk}
 
 \begin{frame}[fragile]
 \frametitle{Terminal Talk}
 \begin{columns}
-
 \column{0.7\textwidth}
 \begin{itemize}
 \item There are multiple GUIs available for Git, such as one from GitHub called the \textbf{GitHub Desktop}. We will not be using this for \sout{religious} perfectly scientific reasons.
@@ -193,19 +182,22 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 \item The \textbf{Pro Git} book is available online at \href{https://git-scm.com/book/}{\textbf{\color{blue}{git-scm.com/book}}}
 \item There is a cheatsheet for Git available here: \href{https://www.git-tower.com/learn/cheat-sheets/git}{\textbf{\color{blue}{https://www.git-tower.com/learn/cheat-sheets/git}}}
 \end{itemize}
-
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{terminal.png}
 \end{columns}
 \end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Your first repository}
+\note{
+	\begin{itemize}
+	\item I personally struggled with the terminal interface at first because most of the man pages use so much vocab I don't know to explain terms I don't know. Hopefully by the end of this mini-course you'll have the basic vocab down so you 	can help yourselves more efficiently going forward.
+	\end{itemize}
+}
 
 \section{Git basics}
 
 \subsection{Local code}
 
+\begin{frame}[fragile]
+\frametitle{Your first repository}
 \begin{itemize}
 \item A \textbf{repository} is a place to store code.
 \begin{itemize}
@@ -213,11 +205,8 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 \item All of the essential parts of your repository can be found in the \textbf{.git} directory
 \item GitHub (a website hosting Git repositories) $\neq$ Git (a set of tools for creating and managing those repositories).
 \end{itemize}
-
 \end{itemize}
-
 \includegraphics[width=\textwidth]{Storage.jpg}
-
 \end{frame}
 
 \begin{frame}
