@@ -334,6 +334,34 @@ git reset <file>
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Checking out your commits}
+\begin{itemize}
+\item \textbf{git checkout} allows you to view the repository at any commit (found with \textbf{git log}).
+\item You may also checkout specific files like so: 
+        \begin{lstlisting}
+git checkout a1e8fb5 hello.py
+        \end{lstlisting}
+\item Note that the most recent commit is \textbf{HEAD} and the one just before that is \textbf{HEAD$\mathbf{\sim}$1}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Quick Exercise}
+    \begin{block}{EXERCISE}
+        \begin{enumerate}
+        \item Repoen your \textbf{myFirstRepo} from before
+	 \item Add a line of text to \textbf{myFile.txt} and save it.
+	 \item Check the status of the stage with \textbf{git status}
+	 \item Add these changes to the stage with \textbf{git add myFile.txt}
+	 \item Check the status of the stage with \textbf{git status}
+        \item Once satisfied with what is in the stage and you're ready to commit, go ahead and do so with \textbf{git commit} to add your new file to the git repository. Be sure to add a meaningful commit message!
+        \item Check the \textbf{git log}.
+	 \item Check the \textbf{git status}
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Ignorance is bliss}
 
 \begin{itemize}
@@ -431,26 +459,6 @@ a powerful tool for storing and restoring history, and working collaboratively w
 \column{0.4\textwidth}
 \includegraphics[width=\textwidth]{gitxkcd.png}
 \end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Checking out your versions}
-%\begin{columns}
-%\column{0.7\textwidth}
-We now know how to work with both local and online repositories, but what about using different versions?
-\begin{itemize}
-\item \textbf{git checkout} allows you to view the repository at any commit (found with \textbf{git log}).
-\item You may also checkout specific files like so: 
-        \begin{lstlisting}
-git checkout a1e8fb5 hello.py
-        \end{lstlisting}
-\item Note that the most recent commit is \textbf{HEAD} and the one just before that is \textbf{HEAD$\mathbf{\sim}$1}
-\item This command will be used later, so keep it in mind! 
-\end{itemize}
-%\column{0.3\textwidth}
-%\includegraphics[width=\textwidth]{basic-usage.png}
-% http://marklodato.github.io/visual-git-guide/index-en.html
-%\end{columns}
 \end{frame}
 
 \section{Working alone}
