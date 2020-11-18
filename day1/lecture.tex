@@ -249,18 +249,16 @@ Show lego photos now}
 \note{Go through car repo example, e.g. adding wheels and doors, but committing only one or the other.}
 
 \begin{frame}[fragile]
-\frametitle{Cleaning the stage}
+\frametitle{Currating the Stage before Committing}
 \begin{columns}
 \column{0.7\textwidth}
 \begin{itemize}
-\item Git has a staging area before commits that can be checked with \textbf{git status}. Anything in \textcolor{dkgreen}{green} is staged.
-\item If you wish to unstage the commit, simply type \textbf{git reset}.
-\item \textbf{git reset} will work for individual files and you may go back to any commit in the history.
+\item Check what is on the stage with \textbf{git status}. Anything in \textcolor{dkgreen}{green} is staged.
+\item If you wish to unstage all changes, simply type \textbf{git reset}. This will remove everything from the stage, but keep your working directory untouched. 
+\item \textbf{git reset} will work for individual files as well
         \begin{lstlisting}
-git reset HEAD~1
+git reset <file>
         \end{lstlisting}
-\item If you wish to undo a commit entirely, use the \textbf{git revert} command.
-\item \textbf{git clean} (with appropriate flags!) will remove any untracked files.
 \end{itemize}
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{the-hook.jpg}
