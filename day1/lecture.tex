@@ -206,17 +206,6 @@ This chart might not make much sense now, but I hope it will before the end of t
 
 I want to first focus on the bottom two arrows here. These are the tools we use to save exactly what changed between versions of our project. }
 
-\begin{frame}[fragile]
-\frametitle{Commits}
-\begin{itemize}
-\item Conceptually similar to "versions"
-\item The more effort you put into crafting these using the \textbf{staging area} the more helpful they are in the future.
-\end{itemize}
-\includegraphics[width=0.9\textwidth]{git_commit.png}
-\end{frame}
-\note{
-Show lego photos now}
-
 \section{Git basics}
 
 \subsection{Local code}
@@ -233,6 +222,17 @@ Show lego photos now}
 \end{itemize}
 \includegraphics[width=\textwidth]{Storage.jpg}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Commits}
+\begin{itemize}
+\item Conceptually similar to "versions"
+\item The more effort you put into crafting these using the \textbf{staging area} the more helpful they are in the future.
+\end{itemize}
+\includegraphics[width=0.9\textwidth]{git_commit.png}
+\end{frame}
+\note{
+Show lego photos now}
 
 \begin{frame}
 \frametitle{Staging Changes}
@@ -263,6 +263,19 @@ git reset <file>
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{the-hook.jpg}
 \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Try out the Stage}
+    \begin{block}{EXERCISE}
+        \begin{enumerate}
+        \item Stage a commit
+        \item Unstage the commit
+        \item Make a commit
+        \item Undo the commit (\textbf{DON'T DO THIS AFTER YOU PUSH!!!!!!11111!!!11!!})
+        \end{enumerate}
+    \end{block}
+
 \end{frame}
 
 \begin{frame}[fragile]
