@@ -292,17 +292,20 @@ git reset <file>
 \includegraphics[width=\textwidth]{the-hook.jpg}
 \end{columns}
 \end{frame}
+\note{As you saw a few slides ago. Adding messy or unnecessary commits doesn't help anyone. Lets discuss how to make meaningful helpful commits using the stage. There are various ways to fix bad commits, but it takes a whole lot less work to do it right the first time.}
 
 \begin{frame}[fragile]
 \frametitle{Try out the Stage}
-    \begin{block}{EXERCISE}
-        \begin{enumerate}
-        \item Stage a commit
-        \item Unstage the commit
-        \item Make a commit
-        \item Undo the commit (\textbf{DON'T DO THIS AFTER YOU PUSH!!!!!!11111!!!11!!})
-        \end{enumerate}
-    \end{block}
+	\begin{block}{EXERCISE}
+		\begin{enumerate}
+		\item Create a new emtpy file \textbf{myfile.txt}
+		\item Check the status of everything with \textbf{git status}
+		\item Add \textbf{myfile.txt} to the stage vis \textbf{git add myfile.txt}
+		\item Check the status of everything again with \textbf{git status}. What changed?
+		\item Unstage the changes with \textbf{git reset myfile.txt}
+		\item Check the status of everything again with \textbf{git status}. What changed?
+		\end{enumerate}
+	\end{block}
 
 \end{frame}
 
