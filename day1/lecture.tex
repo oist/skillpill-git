@@ -311,32 +311,24 @@ git reset <file>
 
 
 \begin{frame}[fragile]
-\frametitle{Create a Repo(sitory)}
-\begin{columns}
-\column{0.7\textwidth}
-Let's \textbf{git} started.
+\frametitle{Committing from the Stage}
 \begin{itemize}
-\item To initialize a git repository, simply type \textbf{git init} in a directory (preferably empty for now)
-\item This creates a folder \textbf{.git/}, where all your repository information is held.
-\item Git tracks \textbf{commits}. Check these commits with \textbf{git log}.
+\item Git keeps track of \textbf{commits}. Check these commits with \textbf{git log}. There's plenty of options to show only what you want or everything under the sun. 
 \item \textbf{git status} checks any changes since the last commit.
-\item \textbf{git add} adds new files.
-\item \textbf{git commit} commits anything in the \textit{staging area} - git status shows these files in {\color{dkgreen}green} by default.
+\item \textbf{git commit} commits everything in the \textit{staging area} - git status shows these files in {\color{dkgreen}green} by default.
 \end{itemize}
-\column{0.3\textwidth}
-\includegraphics[width=\textwidth]{git.jpg}
-\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Quick Exercise}
     \begin{block}{EXERCISE}
         \begin{enumerate}
-        \item Open a terminal
-        \item Create a new directory and run \textbf{git init}
-        \item Create a file and run \textbf{git status}
-        \item Use a combination of \textbf{git add} and \textbf{git commit} to add a new file to the git repository.
+        \item Repoen your \textbf{myFirstRepo} from before
+	 \item Add the \textbf{myFile.txt} back to the stage with \textbf{git add myFile.txt}
+	 \item Check the status of the stage with \textbf{git status}
+        \item Once satisfied with what is in the stage and you're ready to commit, go ahead and do so with \textbf{git commit} to add your new file to the git repository. Be sure to add a meaningful commit message!
         \item Check the \textbf{git log}.
+	 \item Check the \textbf{git status}
         \end{enumerate}
     \end{block}
 \end{frame}
