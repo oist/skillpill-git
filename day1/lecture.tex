@@ -159,7 +159,7 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 	\end{itemize} 
 }
 
-\section{What is Git}
+\subsection{Traditional vs. Git Versioning}
 
 \begin{frame}[fragile]
 \frametitle{Traditional vs. Git Versioning}
@@ -169,6 +169,10 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 \end{itemize}
 \begin{center}\includegraphics[width=0.9\textwidth]{versioning.png}\end{center}
 \end{frame}
+
+\section{What is Git}
+
+\subsection{Three Main Parts (Working Directory, Stage, Repository)}
 
 \begin{frame}[fragile]
 \frametitle{What is git?}
@@ -184,10 +188,6 @@ This chart might not make much sense now, but I hope it will before the end of t
 
 Whether you realize it or not, you are already familiar with the "Working Directory". I'll save the staging area for a bit later, but first lets talk about what a repo is.}
 
-\section{Git basics}
-
-\subsection{Local code}
-
 \begin{frame}[fragile]
 \frametitle{Repositories}
 \begin{itemize}
@@ -202,6 +202,8 @@ Whether you realize it or not, you are already familiar with the "Working Direct
 \end{frame}
 
 \section{How to Use Git}
+
+\subsection{The Terminal}
 
 \begin{frame}[fragile]
 \frametitle{Terminal Talk}
@@ -224,6 +226,8 @@ Whether you realize it or not, you are already familiar with the "Working Direct
 	\end{itemize}
 }
 
+\subsection{Create a repo}
+
 \begin{frame}[fragile]
 \frametitle{Create a Repo(sitory)}
 \begin{columns}
@@ -239,7 +243,7 @@ Let's \textbf{git} started.
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Quick Exercise}
+\frametitle{Create an Empty Repo}
     \begin{block}{EXERCISE}
         \begin{enumerate}
         \item Open a terminal
@@ -252,6 +256,8 @@ Let's \textbf{git} started.
 
 \end{frame}
 
+\subsection{Commits}
+
 \begin{frame}[fragile]
 \frametitle{Commits}
 \begin{itemize}
@@ -262,6 +268,8 @@ Let's \textbf{git} started.
 \end{frame}
 \note{ Before we talk about the Stage we need to understand what commits are.
 Show lego photos now}
+
+\subsection{The Stage (Staging Area, or Index)}
 
 \begin{frame}
 \frametitle{Staging Changes}
@@ -320,8 +328,10 @@ git reset <file>
 \end{itemize}
 \end{frame}
 
+\subsection{Making Commits}
+
 \begin{frame}[fragile]
-\frametitle{Quick Exercise}
+\frametitle{Making Commits}
     \begin{block}{EXERCISE}
         \begin{enumerate}
         \item Repoen your \textbf{myFirstRepo} from before
@@ -337,6 +347,8 @@ git reset <file>
         \end{enumerate}
     \end{block}
 \end{frame}
+
+\subsection{Checking Out Past Commits}
 
 \begin{frame}[fragile]
 \frametitle{Checking out your past commits}
@@ -406,7 +418,7 @@ git checkout a1e8fb5 hello.py
 
 \end{frame}
 
-\subsection{Nonlocal repos / github}
+\section{Working Online}
 
 \begin{frame}
 \frametitle{\textbf{git} with it!}
@@ -453,6 +465,8 @@ git clone https://github.com/<git_user_name>/skillpill-git.git
 *The examples here show cloning the SkillPill Git repository - replace the links as appropriate!
 \end{frame}
 
+\section{Wrap Up}
+
 \begin{frame}
 \frametitle{What it will feel like...}
 \begin{columns}
@@ -469,8 +483,6 @@ a powerful tool for storing and restoring history, and working collaboratively w
 \end{columns}
 \end{frame}
 
-\section{Working alone}
-
 \begin{frame}
 \frametitle{Final Comments}
 \begin{columns}
@@ -486,6 +498,8 @@ a powerful tool for storing and restoring history, and working collaboratively w
 \includegraphics[width=\textwidth]{light-bulb.jpg}
 \end{columns}
 \end{frame}
+
+\section{Extra Credit}
 
 \begin{frame}
 \frametitle{(If Time Allows) Modifying Previous Commits}
@@ -507,6 +521,8 @@ a powerful tool for storing and restoring history, and working collaboratively w
 \end{itemize}
 \end{frame}
 
+\subsection{Revert}
+
 \begin{frame}[fragile]
 \frametitle{Using Revert}
 \begin{itemize}
@@ -522,6 +538,8 @@ a powerful tool for storing and restoring history, and working collaboratively w
         \end{enumerate}
     \end{block}
 \end{frame}
+
+\subsection{Rebase}
 
 \begin{frame}[fragile]
 \frametitle{Using Rebase}
