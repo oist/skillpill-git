@@ -523,5 +523,21 @@ a powerful tool for storing and restoring history, and working collaboratively w
     \end{block}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Using Rebase}
+\begin{itemize}
+\item Rebase rewrites the commit history by starting from specified base commit and choosing what to do with each commit all the way to the current HEAD.
+\item Pro: Great for removing WIP commits or otherwise meaningless commits. Use it to clean up your local history before pushing to a public repo.
+\item Con: This has the possiblity to create a lot of conflicts if used in a shared repo (as one person's history will differ from another). Generally rebase should not be used on any commits you have pushed to a public repo. 
+\end{itemize}
+    \begin{block}{EXERCISE}
+        \begin{enumerate}
+        \item Make a few commits to your \textbf{myFirstRepo} or just use the existing history of your skill-pill fork
+	 \item Making a meaningless WIP commit
+	 \item Use \textbf{git rebase -i \textlangle{}HASH\textrangle{}} and follow the instructions
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
 \end{document} 
 
