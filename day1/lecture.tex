@@ -353,14 +353,13 @@ git checkout a1e8fb5 hello.py
 \frametitle{Quick Exercise}
     \begin{block}{EXERCISE}
         \begin{enumerate}
-        \item Repoen your \textbf{myFirstRepo} from before
-	 \item Add a line of text to \textbf{myFile.txt} and save it.
-	 \item Check the status of the stage with \textbf{git status}
-	 \item Add these changes to the stage with \textbf{git add myFile.txt}
-	 \item Check the status of the stage with \textbf{git status}
+	 \item Add a second line of text to \textbf{myFile.txt} and save it.
+	 \item Add these changes to the stage with \textbf{git add myFile.txt} and check the status with \textbf{git status}
         \item Once satisfied with what is in the stage and you're ready to commit, go ahead and do so with \textbf{git commit} to add your new file to the git repository. Be sure to add a meaningful commit message!
-        \item Check the \textbf{git log}.
-	 \item Check the \textbf{git status}
+        \item Check the \textbf{git log}. You should have three commits by now.
+	 \item Go checkout each of the commits with \textbf{git checkout HASH}, \textbf{git checkout HEAD~1}, or \textbf{git checkout HEAD~2}
+	 \item See whats different with \textbf{ls -al} or \textbf{git status} or just open \textbf{myfile.txt} in your favorite text editor
+	 \item When you are satisfied that your commit history is as expected you can return to the most recent commit with \textbf{git checkout master} (Note this could be \textbf{git checkout main} depending on your version of git. 
         \end{enumerate}
     \end{block}
 \end{frame}
