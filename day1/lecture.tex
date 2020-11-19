@@ -36,6 +36,7 @@
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{textpos} % Use for positioning the Skill Pill logo
 \usepackage{transparent} % For transparency with images
+\usepackage{textcomp} % To print otherwise protected symbols e.g. <,>
 
 \usepackage{ulem} % For strikethrough.
 
@@ -357,7 +358,7 @@ git checkout a1e8fb5 hello.py
 	 \item Add these changes to the stage with \textbf{git add myFile.txt} and check the status with \textbf{git status}
         \item Once satisfied with what is in the stage and you're ready to commit, go ahead and do so with \textbf{git commit} to add your new file to the git repository. Be sure to add a meaningful commit message!
         \item Check the \textbf{git log}. You should have three commits by now.
-	 \item Go checkout each of the commits with \textbf{git checkout HASH}, \textbf{git checkout HEAD~1}, or \textbf{git checkout HEAD~2}
+	 \item Go checkout each of the commits with \textbf{git checkout \textlangle{}HASH\textrangle{}}, \textbf{git checkout HEAD\textasciitilde1}, or \textbf{git checkout HEAD\textasciitilde2}
 	 \item See whats different with \textbf{ls -al} or \textbf{git status} or just open \textbf{myfile.txt} in your favorite text editor
 	 \item When you are satisfied that your commit history is as expected you can return to the most recent commit with \textbf{git checkout master} (Note this could be \textbf{git checkout main} depending on your version of git. 
         \end{enumerate}
