@@ -3,10 +3,14 @@
 import sys
 
 def main(username, timeValue):
-    print("Hello World")
+    print("Hello " + username)
 
 def callFctn(args):
-    username = "World"
+    if len(args) > 1:
+        username = args[1]
+    else:
+        username = "World"
+
     timeValue = ""
     main(username, timeValue)
 
