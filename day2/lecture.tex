@@ -43,6 +43,8 @@
 \usepackage{amsmath}
 \usepackage{listing}
 
+\usepackage{array}
+
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -114,21 +116,30 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 %------------------------------------------------
 
 \section{Recap}
-\begin{frame}[fragile]{Recap}
+\begin{frame}{Recap}
   Last week we covered (don't forget to prefix with \textbf{git}):
   \begin{itemize}
     \item \textbf{clone} : Cloning a repository into a new directory
     \item \textbf{add} : Add file contents to the \textit{index}. This makes git track the file.
     \item \textbf{commit} : Record changes. Store the staged files as a new part of the history!
-    \item \textbf{pull} : Updating from a \textit{remote}. Technicially a combination of \textbf{fetch} and \textbf{merge} by default.
     \item \textbf{push} : Update remote \textit{refs} and objects.
-  \end{itemize}
-  
-  \textit{remote} : Another git repository. We used GitHub to provide this.
-  
-  \textit{index} : A single, large, binary file listing all files in the current branch with some extra information. Reflects the \lq\lq{}proposed next commit\rq\rq{}.
-  
-  \textit{refs} : Short for references. Can point to almost anything in git.
+	\end{itemize}
+	There\rq{}s also a \textbf{pull} command.
+	\begin{itemize}
+		\item \textbf{pull} : Update from a \textit{remote}. Technicially a combination of \textbf{fetch} and \textbf{merge} by default.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Some definitions/descriptions}
+	\renewcommand{\arraystretch}{2.5}
+	\begin{tabular}{m{0.2\textwidth}m{0.6\textwidth}}
+	  \textit{remote} & Another git repository. \newline We used GitHub to provide this. \\
+	  \hline
+  		\textit{index} & A single, large, binary file listing all files in the current branch with some extra information. \newline Reflects the \lq\lq{}proposed next commit\rq\rq{} \\
+  		\hline
+	  \textit{refs} & Short for references. \newline Can point to almost anything in git.
+  \end{tabular}
+  	\renewcommand{\arraystretch}{1}
 \end{frame}
 
 \begin{frame}[fragile]{Tips so far...}
