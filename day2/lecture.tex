@@ -43,6 +43,13 @@
 \usepackage{amsmath}
 \usepackage{listing}
 
+\usepackage{array}
+
+% Allows disabling 'ligatures' (--option with two dashes instead of becoming em-dash/en-dash)
+\usepackage{microtype} 
+\DisableLigatures[-]{}
+
+
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -74,13 +81,13 @@
 \subtitle{Lecture 2: Git it on!}
 
 \author[Christian Butcher] % Shows on every footer
-	{\textbf{Valentin Churavy - 2016} \\ James Schloss - 2018 \\ Christian Butcher - 2019} % Title slide names
+	{\textbf{Valentin Churavy - 2016} \\ James Schloss - 2018 \\ Christian Butcher - 2019, 2020} % Title slide names
 \institute[OIST] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
 Okinawa Institute of Science and Technology \\ % Your institution for the title page
 \textit{christian.butcher@oist.jp} % Your email address
 }
-\date{August 14, 2019} % Date, can be changed to a custom date
+\date{November 26, 2020} % Date, can be changed to a custom date
 
 \begin{document}
 
@@ -114,24 +121,33 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 %------------------------------------------------
 
 \section{Recap}
-\begin{frame}[fragile]{Recap}
-  Yesterday we covered (don't forget to prefix with \textbf{git}):
+\begin{frame}{Recap}
+  Last week we covered (don't forget to prefix with \textbf{git}):
   \begin{itemize}
     \item \textbf{clone} : Cloning a repository into a new directory
     \item \textbf{add} : Add file contents to the \textit{index}. This makes git track the file.
     \item \textbf{commit} : Record changes. Store the staged files as a new part of the history!
-    \item \textbf{pull} : Updating from a \textit{remote}. Technicially a combination of \textbf{fetch} and \textbf{merge} by default.
     \item \textbf{push} : Update remote \textit{refs} and objects.
-  \end{itemize}
-  
-  \textit{remote} : Another git repository. We used GitHub to provide this.
-  
-  \textit{index} : A single, large, binary file listing all files in the current branch with some extra information. Reflects the \lq\lq{}proposed next commit\rq\rq{}.
-  
-  \textit{refs} : Short for references. Can point to almost anything in git.
+	\end{itemize}
+	There\rq{}s also a \textbf{pull} command.
+	\begin{itemize}
+		\item \textbf{pull} : Update from a \textit{remote}. Technicially a combination of \textbf{fetch} and \textbf{merge} by default.
+	\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Tips so far...}
+\begin{frame}{Some definitions/descriptions}
+	\renewcommand{\arraystretch}{2.5}
+	\begin{tabular}{m{0.2\textwidth}m{0.6\textwidth}}
+	  \textit{remote} & Another git repository. \newline We used GitHub to provide this. \\
+	  \hline
+  		\textit{index} & A single, large, binary file listing all files in the current branch with some extra information. \newline Reflects the \lq\lq{}proposed next commit\rq\rq{} \\
+  		\hline
+	  \textit{refs} & Short for references. \newline Can point to almost anything in git.
+  \end{tabular}
+  	\renewcommand{\arraystretch}{1}
+\end{frame}
+
+\begin{frame}{Tips so far...}
   \begin{itemize}
     \item You can use \texttt{git help <command>} or \texttt{git <command> --help} to get information about a command, like \texttt{clone}.
     \item \texttt{git add \textbf{-p}} uses \textit{patch mode} to interactively add parts of a file. \textbf{-i} is interactive without patch mode.
@@ -140,7 +156,7 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Reset and Checkout}
+\begin{frame}{Reset and Checkout}
   We also considered \textbf{reset} and \textbf{revert}.
   \begin{itemize}
     \item Reset is a fairly complicated tool, which modifies the three \lq{}trees\rq{} we have briefly mentioned/considered - \texttt{HEAD} (your last commit), \texttt{index} (the staging area) and the \texttt{working directory}.
@@ -152,8 +168,8 @@ Okinawa Institute of Science and Technology \\ % Your institution for the title 
 
 \section{Working with Remotes}
 \subsection{Remotes}
-\begin{frame}[fragile]{Remotes}
-Yesterday we introduced \textbf{GitHub}. GitHub is a service that offers you a solution to remotely store your repositories.
+\begin{frame}{Remotes}
+Last week we introduced \textbf{GitHub}. GitHub is a service that offers you a solution to remotely store your repositories.
 \begin{itemize}
     \item Git is \emph{Distributed} Version Control System (DVCS). Every copy of your repository, may it be remote or local, is independent of each other. There is no central master repository. 
     \item In order to synchronize these distributed copies we introduce the concept of a remote.
@@ -164,42 +180,69 @@ Yesterday we introduced \textbf{GitHub}. GitHub is a service that offers you a s
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \begin{block}{Exercise 1a}
-    \begin{enumerate}
-      \item Tell Jeremie your GitHub user name so you can be added to the allowed committers for the repository...
-      \item Clone this repository from GitHub: \url{https://github.com/oist/skillpill-git-group1}
-      \item Add your favourite color to the colors file.
-      \item Commit your change with an appropriate message, but don\rq{}t \textbf{push}!
-    \end{enumerate}
+%\begin{frame}
+%  \begin{block}{Exercise 1a}
+%    \begin{enumerate}
+%      \item Tell Jeremie your GitHub user name so you can be added to the allowed committers for the repository...
+%      \item Clone this repository from GitHub: \url{https://github.com/oist/skillpill-git-group1}
+%      \item Add your favourite color to the colors file.
+%      \item Commit your change with an appropriate message, but don\rq{}t \textbf{push}!
+%    \end{enumerate}
+%  \end{block}
+%\end{frame}
+%
+%\begin{frame}
+%  \begin{block}{1b: Alternative Exercise if I can\rq{}t get access to the repository...}
+%    \begin{enumerate}
+%      \item Create an empty directory for your repositories (note plural)
+%      \item In this directory, \texttt{A}, create a new directory, called \lq{}myremote\rq{} (or change as needed below).
+%      \item Change into this new directory, and run \texttt{git init --bare}. This creates a \lq{}bare\rq{} repository, in which nothing is checked out.
+%      \item Move back into directory A. Create a new directory, and then run \texttt{git init} (not bare), add a file, and commit it.
+%      \item Run the command \texttt{git remote add origin ../myremote/}, which adds a remote repository called \lq{}origin\rq{}, pointing to the directory \lq{}myremote\rq{}.
+%    \end{enumerate}
+%  \end{block}
+%\end{frame}
+%\begin{frame}
+%  \begin{block}{1b: Alternative Exercise Continued...}
+%    \begin{enumerate}
+%      \setcounter{enumi}{5} % Continue counting from 6 (5 points in previous slide)
+%      \item Push your commit with the command \texttt{git push -u origin master}, which sets your branch to track the new branch \lq{}master\rq{} on \lq{}origin\rq{}.
+%      \item Go back to A. Clone your \lq{}myremote\rq{} repository with the command \texttt{git clone myremote secondcopy} (a new directory named \lq{}secondcopy\rq{} will be created).
+%      \item Make changes to your file in both your first repository, and \lq{}secondcopy\rq{} (not \lq{}myremote\rq{}). Commit both. Push from only the first repository (not \lq{}secondcopy\rq{}).
+%    \end{enumerate}
+%  \end{block}
+%\end{frame}
+
+\subsection{Branches}
+\begin{frame}{Branches}
+  Since there git is decentralized there is no one state of the repository that is correct. To manage this complexity git has the notion of a branch. 
+  \begin{block}{}
+    \begin{itemize}
+      \item git \textbf{branch}  Manages branches. 
+      \item git \textbf{checkout} Switch between branches.
+    \end{itemize}
   \end{block}
+
+  \begin{itemize}
+    \item Most repositories have a default branch called \textbf{master} (this is changing to "main" in some cases). Branches are just names for points in the history.
+    \item Once we start working with branches we have to ask ourselves how are we going to join them back up? We can do this by performing a merge.
+    \item You can also associate a local branch with a remote branch by setting it as upstream. git push \textbf{-u}.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{1b: Alternative Exercise if I can\rq{}t get access to the repository...}
+  \begin{block}{Exercise}
     \begin{enumerate}
-      \item Create an empty directory for your repositories (note plural)
-      \item In this directory, \texttt{A}, create a new directory, called \lq{}myremote\rq{} (or change as needed below).
-      \item Change into this new directory, and run \texttt{git init --bare}. This creates a \lq{}bare\rq{} repository, in which nothing is checked out.
-      \item Move back into directory A. Create a new directory, and then run \texttt{git init} (not bare), add a file, and commit it.
-      \item Run the command \texttt{git remote add origin ../myremote/}, which adds a remote repository called \lq{}origin\rq{}, pointing to the directory \lq{}myremote\rq{}.
+      \item Create a new branch, based of master
+      \item Add a few commits to your branch
+      \item Change back onto master
+      \item Check the contents of the file(s) you changed on your other branch whilst you\rq{}re on the master branch
     \end{enumerate}
   \end{block}
 \end{frame}
-\begin{frame}
-  \begin{block}{1b: Alternative Exercise Continued...}
-    \begin{enumerate}
-      \setcounter{enumi}{5} % Continue counting from 6 (5 points in previous slide)
-      \item Push your commit with the command \texttt{git push -u origin master}, which sets your branch to track the new branch \lq{}master\rq{} on \lq{}origin\rq{}.
-      \item Go back to A. Clone your \lq{}myremote\rq{} repository with the command \texttt{git clone myremote secondcopy} (a new directory named \lq{}secondcopy\rq{} will be created).
-      \item Make changes to your file in both your first repository, and \lq{}secondcopy\rq{} (not \lq{}myremote\rq{}). Commit both. Push from only the first repository (not \lq{}secondcopy\rq{}).
-    \end{enumerate}
-  \end{block}
-\end{frame}
-
 
 \subsection{Merging}
-\begin{frame}[fragile]{Merging - An Introduction}
+\begin{frame}{Merging - An Introduction}
   \begin{itemize}
     \item We perform \textit{merges} to \lq\lq{}join two or more development histories together\rq\rq{}.
     \item It is most commonly performed invisibly by \texttt{git pull} and performs by default a \lq\lq{}fast-forward\rq\rq{} merge.
@@ -219,88 +262,72 @@ Merging is the act of joining two branches together or to join two different bra
 
     Options for merge:
     \begin{description}
-      \item[--no-commit] Performs the merge, but doesn't commit yet. Giving you the change to edit the merge commit.
+      \item[--no-commit] Performs the merge, but doesn't commit yet. Gives you a chance to edit the merge commit.
       \item[--ff-only]   Aborts when we can't perform a fast-forward merge.
       \item[--abort]     Aborts current conflict-resolution and reset to previous state.
     \end{description}
   \end{block}
 
-  You can visualize your history in many different ways, but the best way on the command line is.\\
-  \begin{block}{}
-  git log \textbf{--graph --decorate --oneline}
+  You can visualize your history in many different ways, but a nice way from the command line is.\\
+  \begin{block}
+  git log \textbf{--graph --decorate --oneline --all}
   \end{block}
-\end{frame}
-
-\begin{frame}
-  \begin{block}{Exercise - Assuming we did Exercise 1a}
-    \begin{enumerate}
-      \item Try to push your changes to the \lq{}colors\rq{} file with \textbf{git push}
-      \item You\rq{}ll receive a message indicating that there are remote changes, and instructing you to use \textbf{git pull}
-      \item Use \textbf{git pull} to trigger a merge conflict
-      \item Use a text editor to resolve the conflict
-      \begin{itemize}
-        \item There will be lines like \texttt{<<<<<<< HEAD}, \texttt{=======} and \texttt{>>>>>>> 1a2bde2189}
-        \item Your changes are marked by the section between \texttt{HEAD} and the \texttt{=======} line
-        \item Update the file to reflect the new version you expect
-      \end{itemize}
-      \item Commit the resolved file (don\rq{}t forget to \textbf{add})
-      \item Try to push your branch again. If someone else already did, you\rq{}ll be back at the beginning!
-      \item Obviously this can be annoying - we\rq{}ll look at Pull Requests (a GitHub feature) later as a different way to handle this in bigger repositories
-    \end{enumerate}
-  \end{block}
-\end{frame}
-
-\begin{frame}
-  \begin{block}{Exercise - Assuming we did Exercise 1b}
-    \begin{enumerate}
-      \item Go into your \lq{}secondcopy\rq{} directory and try to \textbf{push} the changes
-      \item You\rq{}ll receive a message indicating that there are remote changes, and instructing you to use \textbf{git pull}
-      \item Use \textbf{git pull} to trigger a merge conflict
-      \item Use a text editor to resolve the conflict
-      \begin{itemize}
-        \item There will be lines like \texttt{<<<<<<< HEAD}, \texttt{=======} and \texttt{>>>>>>> 1a2bde2189}
-        \item Your changes are marked by the section between \texttt{HEAD} and the \texttt{=======} line
-        \item Update the file to reflect the new version you expect
-      \end{itemize}
-      \item Commit the resolved file (don\rq{}t forget to \textbf{add})
-      \item Push again. You should now manage to update the \lq{}remote\rq{} repository
-      \item Go into your first directory and use \textbf{git pull} to get the changes you just made
-      \item Both of your repository copies are now up to date with \texttt{myremote}
-    \end{enumerate}
-  \end{block}
-\end{frame}
-
-
-\subsection{Branches}
-\begin{frame}[fragile]{Branches}
-  Since there git is decentralized there is no one state of the repository that is correct. To manage this complexity git has the notion of a branch. 
-  \begin{itemize}
-    \item Branches are parallel timelines and are lightweight, so branch often and branch early.
-  \begin{block}{}
-    \begin{itemize}
-      \item git \textbf{branch}  Manages branches. 
-      \item git \textbf{checkout} Switch between branches.
-    \end{itemize}
-  \end{block}
-    \item Most repositories have a default branch called \textbf{master}. Branches are just names for points in the history.
-    \item Once we start working with branches we have to ask ourselves how are we going to join them back up? We can do this by performing a merge.
-
-    \item You can also associate a local branch with a remote branch by setting it as upstream. git push \textbf{-u}.
-  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \begin{block}{Exercise}
     \begin{enumerate}
-      \item Create a new branch, based of master
-      \item Add a few commits to your branch
-      \item Change back onto master
-      \item Check the contents of the file(s) you changed on your other branch whilst you\rq{}re on the master branch
-    \end{enumerate}
+    	\item \textbf{Clone} a fork of the repository at \url{https://github.com/oist/skillpill-git} (you may have this available from last week)
+		\item \textbf{Checkout} the `merge-main' branch
+		\item \textbf{Merge} the `merge-AddNameToGreeting' branch. Optionally use ``--no-ff'' to force a merge commit. This will succeed without conflict.
+		\item Attempt to merge the `merge-TimeOfDayGreeting' branch. This will cause a merge conflict!
+	\end{enumerate}
   \end{block}
 \end{frame}
 
+\begin{frame}[fragile]
+	\begin{lstlisting}[language=Python, title={Merge conflict contents}, basicstyle=\tiny]
+def main(username, timeValue):
+<<<<<<< HEAD
+    print("Hello " + username)
 
+def callFctn(args):
+    if len(args) > 1:
+        username = args[1]
+    else:
+        username = "World"
+
+    timeValue = ""
+=======
+    greeting = getGreeting(timeValue)
+    print(greeting + " " + username)
+
+def callFctn(args):
+    username = "World"
+    
+    if len(args) > 1:
+        try:
+            timeValue = time.strptime(args[1], "%H:%M")
+        except:
+            timeValue = ""
+    else:
+        timeValue = ""
+
+>>>>>>> merge-TimeOfDayGreeting
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Exercise continued}
+    \begin{enumerate}
+    	\setcounter{enumi}{4}
+	    \item Use a text editor to resolve the conflict
+		\item Commit the resolved file (don't forget to \textbf{add})
+		\item Push your branch to your forked repository
+	\end{enumerate}
+  \end{block}
+  This brings us on to ``Pull Requests''...
+\end{frame}
 
 
 %\begin{frame}[fragile]{Interlude: .gitconfig}
@@ -335,10 +362,7 @@ Merging is the act of joining two branches together or to join two different bra
       \item Demonstration...
       \item Practice:
       \begin{enumerate}
-        \item Clone our repository from GitHub: \url{https://github.com/oist/skillpill-git-group1}
-        \item Fork it (use the website)
-        \item Add your fork of the repository as a remote to your local repository
-        \item Push a change to your fork
+        \item In the last exercise we pushed commits to forks of the OIST repository
         \item Open a pull request on GitHub against the original repository
       \end{enumerate}
     \end{itemize}
@@ -378,22 +402,7 @@ Merging is the act of joining two branches together or to join two different bra
 \end{frame}
 
 \begin{frame}[allowframebreaks,fragile]{Secrets!}
-  \begin{block}{Autosquash}
-    \begin{itemize}
-      \item git config rebase.autosquash true
-      \item git commit \textbf{--squash=}\emph{some-hash}
-      \item git commit \textbf{--fixup=}\emph{some-hash}
-     \end{itemize}
-     Autosquash will reorder the commits appropriatly before you perform a git \textbf{rebase -i}.
-  \end{block}
-  \begin{block}{Blame}
-    There is no such thing as \textit{good} code. If you are using git with people, chances are that something will break at some time and you need someone to blame. That's what git blame is for:
-    \begin{lstlisting}
-        git blame -L 1,3 file
-    \end{lstlisting}
-  \end{block}
-  \framebreak
-  \begin{block}{Stash}
+ \begin{block}{Stash}
     When you are moving between branches you sometines want to keep your non-commited changes associated with the branch you where doing them one.
     \begin{itemize}
       \item git \textbf{stash}
@@ -408,6 +417,23 @@ Merging is the act of joining two branches together or to join two different bra
     \item git \textbf{rm} Removes file.
     \item git \textbf{mv} Move file within repository
   \end{itemize}
+  
+  \framebreak
+    
+  \begin{block}{Autosquash}
+    \begin{itemize}
+      \item git config rebase.autosquash true
+      \item git commit \textbf{--squash=}\emph{some-hash}
+      \item git commit \textbf{--fixup=}\emph{some-hash}
+     \end{itemize}
+     Autosquash will reorder the commits appropriatly before you perform a git \textbf{rebase -i}.
+  \end{block}
+  \begin{block}{Blame}
+    There is no such thing as \textit{good} code. If you are using git with people, chances are that something will break at some time and you need someone to blame. That's what git blame is for:
+    \begin{lstlisting}
+        git blame -L 1,3 file
+    \end{lstlisting}
+  \end{block}
 \end{frame}
 
 \end{document}
