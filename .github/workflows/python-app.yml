@@ -18,6 +18,7 @@ on:
         description: 'Input to specify a custom time of day'
         required: false
         default: ''
+    branches: [ merge-main, merge-AddNameToGreeting, merge-TimeOfDayGreeting ]
 
 jobs:
   build:
