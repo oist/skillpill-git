@@ -1,12 +1,18 @@
+#!/usr/bin/python3
+
 import sys
 
 def main(username):
     print("Hello " + username)
 
-if __name__ == "__main__":
+def callFctn(args):
     username = ""
-    if (len(sys.argv) > 1):
-        username = sys.argv[1]
+    if (len(args) > 1):
+        username = args[1]
     else:
         username = "World"
+        
     main(username)
+
+if __name__ == "__main__":
+    callFctn(sys.argv)
