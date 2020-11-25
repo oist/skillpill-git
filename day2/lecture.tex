@@ -216,17 +216,16 @@ Last week we introduced \textbf{GitHub}. GitHub is a service that offers you a s
 \subsection{Branches}
 \begin{frame}{Branches}
   Since there git is decentralized there is no one state of the repository that is correct. To manage this complexity git has the notion of a branch. 
-  \begin{itemize}
-    \item Branches are parallel timelines and are lightweight, so branch often and branch early.
   \begin{block}{}
     \begin{itemize}
       \item git \textbf{branch}  Manages branches. 
       \item git \textbf{checkout} Switch between branches.
     \end{itemize}
   \end{block}
-    \item Most repositories have a default branch called \textbf{master}. Branches are just names for points in the history.
-    \item Once we start working with branches we have to ask ourselves how are we going to join them back up? We can do this by performing a merge.
 
+  \begin{itemize}
+    \item Most repositories have a default branch called \textbf{master} (this is changing to "main" in some cases). Branches are just names for points in the history.
+    \item Once we start working with branches we have to ask ourselves how are we going to join them back up? We can do this by performing a merge.
     \item You can also associate a local branch with a remote branch by setting it as upstream. git push \textbf{-u}.
   \end{itemize}
 \end{frame}
@@ -270,7 +269,7 @@ Merging is the act of joining two branches together or to join two different bra
   \end{block}
 
   You can visualize your history in many different ways, but a nice way from the command line is.\\
-  \begin{block}{}
+  \begin{block}
   git log \textbf{--graph --decorate --oneline --all}
   \end{block}
 \end{frame}
@@ -278,21 +277,56 @@ Merging is the act of joining two branches together or to join two different bra
 \begin{frame}
   \begin{block}{Exercise}
     \begin{enumerate}
-    		\item \textbf{Clone} a \textit{fork} of the repository at \url{https://github.com/oist/skillpill-git} (you may have this available from last week)
-			\item \textbf{Checkout} the `merge-main' branch
-      \item You\rq{}ll receive a message indicating that there are remote changes, and instructing you to use \textbf{git pull}
-      \item Use \textbf{git pull} to trigger a merge conflict
-      \item Use a text editor to resolve the conflict
-      \begin{itemize}
-        \item There will be lines like \texttt{<<<<<<< HEAD}, \texttt{=======} and \texttt{>>>>>>> 1a2bde2189}
-        \item Your changes are marked by the section between \texttt{HEAD} and the \texttt{=======} line
-        \item Update the file to reflect the new version you expect
-      \end{itemize}
-      \item Commit the resolved file (don\rq{}t forget to \textbf{add})
-      \item Try to push your branch again. If someone else already did, you\rq{}ll be back at the beginning!
-      \item Obviously this can be annoying - we\rq{}ll look at Pull Requests (a GitHub feature) later as a different way to handle this in bigger repositories
-    \end{enumerate}
+    	\item \textbf{Clone} a fork of the repository at \url{https://github.com/oist/skillpill-git} (you may have this available from last week)
+		\item \textbf{Checkout} the `merge-main' branch
+		\item \textbf{Merge} the `merge-AddNameToGreeting' branch. Optionally use ``--no-ff'' to force a merge commit. This will succeed without conflict.
+		\item Attempt to merge the `merge-TimeOfDayGreeting' branch. This will cause a merge conflict!
+	\end{enumerate}
   \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\begin{lstlisting}[language=Python, title={Merge conflict contents}, basicstyle=\tiny]
+def main(username, timeValue):
+<<<<<<< HEAD
+    print("Hello " + username)
+
+def callFctn(args):
+    if len(args) > 1:
+        username = args[1]
+    else:
+        username = "World"
+
+    timeValue = ""
+=======
+    greeting = getGreeting(timeValue)
+    print(greeting + " " + username)
+
+def callFctn(args):
+    username = "World"
+    
+    if len(args) > 1:
+        try:
+            timeValue = time.strptime(args[1], "%H:%M")
+        except:
+            timeValue = ""
+    else:
+        timeValue = ""
+
+>>>>>>> merge-TimeOfDayGreeting
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Exercise continued}
+    \begin{enumerate}
+    	\setcounter{enumi}{4}
+	    \item Use a text editor to resolve the conflict
+		\item Commit the resolved file (don't forget to \textbf{add})
+		\item Push your branch to your forked repository
+	\end{enumerate}
+  \end{block}
+  This brings us on to ``Pull Requests''...
 \end{frame}
 
 
@@ -328,10 +362,7 @@ Merging is the act of joining two branches together or to join two different bra
       \item Demonstration...
       \item Practice:
       \begin{enumerate}
-        \item Clone our repository from GitHub: \url{https://github.com/oist/skillpill-git-group1}
-        \item Fork it (use the website)
-        \item Add your fork of the repository as a remote to your local repository
-        \item Push a change to your fork
+        \item In the last exercise we pushed commits to forks of the OIST repository
         \item Open a pull request on GitHub against the original repository
       \end{enumerate}
     \end{itemize}
@@ -371,22 +402,7 @@ Merging is the act of joining two branches together or to join two different bra
 \end{frame}
 
 \begin{frame}[allowframebreaks,fragile]{Secrets!}
-  \begin{block}{Autosquash}
-    \begin{itemize}
-      \item git config rebase.autosquash true
-      \item git commit \textbf{--squash=}\emph{some-hash}
-      \item git commit \textbf{--fixup=}\emph{some-hash}
-     \end{itemize}
-     Autosquash will reorder the commits appropriatly before you perform a git \textbf{rebase -i}.
-  \end{block}
-  \begin{block}{Blame}
-    There is no such thing as \textit{good} code. If you are using git with people, chances are that something will break at some time and you need someone to blame. That's what git blame is for:
-    \begin{lstlisting}
-        git blame -L 1,3 file
-    \end{lstlisting}
-  \end{block}
-  \framebreak
-  \begin{block}{Stash}
+ \begin{block}{Stash}
     When you are moving between branches you sometines want to keep your non-commited changes associated with the branch you where doing them one.
     \begin{itemize}
       \item git \textbf{stash}
@@ -401,6 +417,23 @@ Merging is the act of joining two branches together or to join two different bra
     \item git \textbf{rm} Removes file.
     \item git \textbf{mv} Move file within repository
   \end{itemize}
+  
+  \framebreak
+    
+  \begin{block}{Autosquash}
+    \begin{itemize}
+      \item git config rebase.autosquash true
+      \item git commit \textbf{--squash=}\emph{some-hash}
+      \item git commit \textbf{--fixup=}\emph{some-hash}
+     \end{itemize}
+     Autosquash will reorder the commits appropriatly before you perform a git \textbf{rebase -i}.
+  \end{block}
+  \begin{block}{Blame}
+    There is no such thing as \textit{good} code. If you are using git with people, chances are that something will break at some time and you need someone to blame. That's what git blame is for:
+    \begin{lstlisting}
+        git blame -L 1,3 file
+    \end{lstlisting}
+  \end{block}
 \end{frame}
 
 \end{document}
