@@ -8,6 +8,16 @@ on:
     branches: [ merge-main, merge-AddNameToGreeting, merge-TimeOfDayGreeting ]
   pull_request:
     branches: [ merge-main, merge-AddNameToGreeting, merge-TimeOfDayGreeting ]
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: false
+        default: 'World'
+      timeOfDay:
+        description: 'Input to specify a custom time of day'
+        required: false
+        default: ''
 
 jobs:
   build:
