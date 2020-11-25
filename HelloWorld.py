@@ -1,10 +1,14 @@
 #!/usr/bin/python3
 
-def main():
+import sys
+
+def main(username, timeValue):
     print("Hello World")
 
 def callFctn(args):
-    main()
+    username = "World"
+    timeValue = ""
+    main(username, timeValue)
 
 if __name__ == "__main__":
-    callFctn([])
+    callFctn(sys.argv)
