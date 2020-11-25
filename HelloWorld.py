@@ -3,5 +3,8 @@
 def main():
     print("Hello World")
 
-if __name__ == "__main__":
+def callFctn(args):
     main()
+
+if __name__ == "__main__":
+    callFctn([])
