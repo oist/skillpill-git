@@ -514,6 +514,7 @@ git checkout a1e8fb5 hello.py
 		\end{itemize}
 		\item Potentially destructive: (Changes history)
 		\begin{itemize}
+			\item \textbf{reset}
 			\item \textbf{rebase}
 		\end{itemize}
 		\item Danger Zone: (Can erase history)
@@ -538,6 +539,32 @@ git checkout a1e8fb5 hello.py
 			\item Make a few commits to your \textbf{myFirstRepo} if you don't have any already. Make sure they are simple for now (just single line additions). Use \textbf{git log} to understand your current git history and \textbf{cat myfile.txt} to understand the contents of your file before reverting.
 			\item Find a commit you want to revert using \textbf{git log} and \textbf{git show} or \textbf{git diff}. Ensure the commit you choose is just the addition of a single line. 
 			\item Revert that commit with \textbf{git revert \textlangle{}HASH\textrangle{}} or \textbf{git revert HEAD\textasciitilde\textlangle{}\#\textrangle{}} Use \textbf{git log} to understand your current git history. Use \textbf{cat myfile.txt} to again understand the contents of your file after reverting.
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\subsection{Reset}
+
+\begin{frame}[fragile]
+	\frametitle{Using Reset}
+	\begin{itemize}
+		\item You may remember the \textbf{git reset} command to remove things from the Staging Area (undoing staging)
+		\item We can also use \textbf{git reset} to undo commits. 
+		\item This is a great way to undo fairly recent commits (one or two before), but not the ideal tool for doing anything further than that. 
+		\item When you use \textbf{git reset HEAD\textasciitilde1} you undo your most recent commit but retain all the changes the commit made. This is useful if you accidentally included a file in a commit and want to go back, and remake the commit.  
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Using Reset}
+	\begin{block}{EXERCISE}
+		\begin{enumerate}
+			\item Make a new commit with a single line addition to myfile.txt and add a new file called "BIGBINARY". 
+			\item Make sure you have a clean working directory (no local changes compared to most recent commit) with \textbf{git status}
+			\item Use \textbf{git show} to show the changes made by your most recent commit. Hopefully this should show the single line addition to myfile.txt and the newly added BIGBINARY file.
+			\item Use \textbf{git reset HEAD\textasciitilde1} to undo this commit but keep the single line addition and BIGBINARY in the working directory (Your work is not undone, just the commit).
+			\item Use \textbf{git status} to see that this line addition is still in your text file, but \textbf{git log} no longer shows the commit
+			\item Make a new GOOD commit by adding only myfile.txt to the stage and not BIGBINARY.
 		\end{enumerate}
 	\end{block}
 \end{frame}
