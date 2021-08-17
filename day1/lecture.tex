@@ -614,14 +614,20 @@ git checkout a1e8fb5 hello.py
 }
 
 \begin{frame}[fragile]
-\frametitle{Branches: Creating Them}
-\begin{itemize}
-\item \textbf{git branch \textlangle{} new-branch \textrangle{} } Create a new branch at HEAD
-\item \textbf{git branch -av}: List all existing branches
-\item \textbf{git branch -d <branch>}: Delete a branch
-\item \textbf{git checkout <branch>}: Checkout a branch
-\item Shortcut: \textbf{git checkout -b <branch>}: Create a new branch @ HEAD and then check it out.
-\end{itemize}
+\frametitle{Branches: Creating and Deleting Them}
+	\begin{block}{EXERCISE}
+	\begin{enumerate}
+		\item \textbf{git branch my2ndBranch } Create a new branch at HEAD
+		\item \textbf{git checkout my2ndBranch} to check it out
+		\item Make 2 WIP commits (empty files, single line additions, etc).
+		\item \textbf{git log --all} or \textbf{git log --pretty='format:\%C(auto)\%h \%d \%s, \%C(green)\%ad)' --all --graph --abbrev-commit --notes --date=relative} for a prettier log/tree.
+		\item \textbf{git branch -d my2ndBranch}: Delete a branch (Git warns you)
+		\item \textbf{git checkout master}: Checkout master branch before deleting.
+		\item \textbf{git branch -d my2ndBranch}: Delete a branch (Git warns you)
+		\item \textbf{git branch -D my2ndBranch}: Delete a branch
+		\item Shortcut: \textbf{git checkout -b my2ndBranch}: Create a new branch @ HEAD and then check it out.
+	\end{enumerate}
+\end{block}
 \end{frame}
 \note{Lets take a look at how to create, delete and play around with branches}
 
