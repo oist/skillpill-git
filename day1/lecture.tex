@@ -641,6 +641,7 @@ git checkout a1e8fb5 hello.py
 			\item \textbf{git log --all} or \textbf{git log --pretty='format:\%C(auto)\%h \%d \%s, \%C(green)\%ad)' --all --graph --abbrev-commit --notes --date=relative} for a prettier log/tree.
 			\item \textbf{git checkout master}: Checkout master branch before deleting.
 			\item \textbf{git merge my2ndBranch}: Merges my2ndBranch into HEAD (master)
+			\item \textbf{git merge my2ndBranch --no-ff}: Retains branch-like history. (I prefer this)
 			\item \textbf{git branch -d my2ndBranch}: Delete a branch (git doesn't warn you)
 		\end{enumerate}
 	\end{block}
