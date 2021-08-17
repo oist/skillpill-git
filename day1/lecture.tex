@@ -578,14 +578,20 @@ git checkout a1e8fb5 hello.py
 \begin{frame}[fragile]
 	\frametitle{Using Rebase}
 	\begin{itemize}
-		\item Rebase rewrites the commit history by starting from specified base commit and choosing what to do with each commit all the way to the current HEAD.
+		\item \textbf{git rebase} rewrites the commit history by starting from specified base commit and choosing what to do with each commit all the way to the current HEAD.
 		\item Pro: Great for removing WIP commits or otherwise meaningless commits. Use it to clean up your local history before pushing to a public repo.
-		\item Con: This has the possiblity to create a lot of conflicts if used in a shared repo (as one person's history will differ from another). Generally rebase should not be used on any commits you have pushed to a public repo. 
+		\item Con: This has the possiblity to create a lot of conflicts if used in a shared repo (as one person's history will differ from another). Generally rebase should not be used to modify any commits you have pushed to a public repo. 
+		\item Generally I recommend using \textbf{git rebase -i} for beginners as this shows you what is going on each step of the way.
 	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Using Rebase}
 	\begin{block}{EXERCISE}
 		\begin{enumerate}
-			\item Make a few commits to your \textbf{myFirstRepo} or just use the existing history of your skill-pill fork
-			\item Making a meaningless WIP commit
+			\item Make sure you have at least 5 commits to your \textbf{myFirstRepo}.
+			\item Making at least one of these a meaningless WIP commit. 
+			\item Use \textbf{git log} to find the earliest commit that was bad (first WIP commit). Copy the HASH from the commit \textbf{just prior} to this WIP commit. We want to rebase our current HEAD not on the WIP commit, but just before it so we can remove or fix the WIP commit. 
 			\item Use \textbf{git rebase -i \textlangle{}HASH\textrangle{}} and follow the instructions
 		\end{enumerate}
 	\end{block}
