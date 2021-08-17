@@ -504,7 +504,7 @@ git checkout a1e8fb5 hello.py
 \end{frame}
 
 \begin{frame}
-	\frametitle{(If Time Allows) Modifying Previous Commits}
+	\frametitle{Modifying Previous Commits}
 	\begin{itemize}
 		\item If you commit something that turns out to be a mistake, don't worry! There are plenty of tools to rework commits.
 		\item Some are more powerful (and potentially distructive than others)
@@ -528,15 +528,15 @@ git checkout a1e8fb5 hello.py
 \begin{frame}[fragile]
 	\frametitle{Using Revert}
 	\begin{itemize}
-		\item Revert makes a new commit showing that you reverted a previous commit.
-		\item Pro: This is very useful for public repos (next session) where you want to show exactly what you've undone to others.
-		\item Con: This can make your commit history quite messy if used too often. 
+		\item Revert makes a new commit showing what you reverted.
+		\item Pro: This is very useful for public repos where you want to show exactly what you've undone to others.
+		\item Con: Can make your commit history messy if used too often. 
 	\end{itemize}
 	\begin{block}{EXERCISE}
 		\begin{enumerate}
-			\item Make a few commits to your \textbf{myFirstRepo} or just use the existing history of your skill-pill fork
-			\item Find a commit you want to revert using \textbf{git log} and \textbf{git show} or \textbf{git diff}
-			\item Revert that commit with \textbf{git revert \textlangle{}HASH\textrangle{}} or \textbf{git revert HEAD\textasciitilde\textlangle{}\#\textrangle{}}
+			\item Make a few commits to your \textbf{myFirstRepo} if you don't have any already. Make sure they are simple for now (just single line additions). Use \textbf{git log} to understand your current git history and \textbf{cat myfile.txt} to understand the contents of your file before reverting.
+			\item Find a commit you want to revert using \textbf{git log} and \textbf{git show} or \textbf{git diff}. Ensure the commit you choose is just the addition of a single line. 
+			\item Revert that commit with \textbf{git revert \textlangle{}HASH\textrangle{}} or \textbf{git revert HEAD\textasciitilde\textlangle{}\#\textrangle{}} Use \textbf{git log} to understand your current git history. Use \textbf{cat myfile.txt} to again understand the contents of your file after reverting.
 		\end{enumerate}
 	\end{block}
 \end{frame}
