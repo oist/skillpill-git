@@ -350,8 +350,6 @@ Let's \textbf{git} started.
 	\note{Added the roof}
 \end{frame}
 
-}
-
 \subsection{The Stage (Staging Area, or Index)}
 
 \begin{frame}
@@ -387,7 +385,7 @@ git reset <file>
 \note{
 	\begin{itemize}
 		\item As you saw a few slides ago. Adding messy or unnecessary commits doesn't help anyone. Lets discuss how to make meaningful helpful commits using the stage. There are various ways to fix bad commits, but it takes a whole lot less work to do it right the first time.
-		\item Git works best with the workflow Prof. Doya often and rightly reminds of; start with something simple and work our way up. }
+		\item Git works best with the workflow Prof. Doya often and rightly reminds of; start with something simple and work our way up.
 	\end{itemize}
 }
 \begin{frame}[fragile]
@@ -520,6 +518,18 @@ git checkout a1e8fb5 hello.py
 		\item With the house example, think separation of the development of garage or porch. Or think about remodeling the interior while someone else works on the exterior.  
 	\end{itemize}
 }
+
+\begin{frame}[fragile]
+\frametitle{Branches: Creating Them}
+\begin{itemize}
+\item \textbf{git branch \langle new-branch \rangle} : Create a new branch @ HEAD
+\item \textbf{git branch -av}: List all existing branches
+\item \textbf{git branch -d <branch>}: Delete a branch
+\item \textbf{git checkout <branch>}: Checkout a branch
+\item Shortcut: \textbf{git checkout -b <branch>}: Create a new branch @ HEAD and then check it out.
+\end{itemize}
+\end{frame}
+\note{Lets take a look at how to create, delete and play around with branches}
 
 \section{Working Online}
 
