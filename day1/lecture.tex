@@ -530,10 +530,14 @@ git checkout a1e8fb5 hello.py
 \begin{frame}[fragile]
 	\frametitle{Using Revert}
 	\begin{itemize}
-		\item Revert makes a new commit showing what you reverted.
+		\item \textbf{git revert \textlangle{}HASH\textrangle{}} makes a new commit showing what you reverted.
 		\item Pro: This is very useful for public repos where you want to show exactly what you've undone to others.
 		\item Con: Can make your commit history messy if used too often. 
 	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Using Revert}
 	\begin{block}{EXERCISE}
 		\begin{enumerate}
 			\item Make a few commits to your \textbf{myFirstRepo} if you don't have any already. Make sure they are simple for now (just single line additions). Use \textbf{git log} to understand your current git history and \textbf{cat myfile.txt} to understand the contents of your file before reverting.
