@@ -503,6 +503,62 @@ git checkout a1e8fb5 hello.py
 
 \end{frame}
 
+\begin{frame}
+	\frametitle{(If Time Allows) Modifying Previous Commits}
+	\begin{itemize}
+		\item If you commit something that turns out to be a mistake, don't worry! There are plenty of tools to rework commits.
+		\item Some are more powerful (and potentially distructive than others)
+		\item Non-destructive: (Leaves history intact)
+		\begin{itemize}
+			\item \textbf{revert}
+		\end{itemize}
+		\item Potentially destructive: (Changes history)
+		\begin{itemize}
+			\item \textbf{rebase}
+		\end{itemize}
+		\item Danger Zone: (Can erase history)
+		\begin{itemize}
+			\item \textbf{reflog}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\subsection{Revert}
+
+\begin{frame}[fragile]
+	\frametitle{Using Revert}
+	\begin{itemize}
+		\item Revert makes a new commit showing that you reverted a previous commit.
+		\item Pro: This is very useful for public repos (next session) where you want to show exactly what you've undone to others.
+		\item Con: This can make your commit history quite messy if used too often. 
+	\end{itemize}
+	\begin{block}{EXERCISE}
+		\begin{enumerate}
+			\item Make a few commits to your \textbf{myFirstRepo} or just use the existing history of your skill-pill fork
+			\item Find a commit you want to revert using \textbf{git log} and \textbf{git show} or \textbf{git diff}
+			\item Revert that commit with \textbf{git revert \textlangle{}HASH\textrangle{}} or \textbf{git revert HEAD\textasciitilde\textlangle{}\#\textrangle{}}
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\subsection{Rebase}
+
+\begin{frame}[fragile]
+	\frametitle{Using Rebase}
+	\begin{itemize}
+		\item Rebase rewrites the commit history by starting from specified base commit and choosing what to do with each commit all the way to the current HEAD.
+		\item Pro: Great for removing WIP commits or otherwise meaningless commits. Use it to clean up your local history before pushing to a public repo.
+		\item Con: This has the possiblity to create a lot of conflicts if used in a shared repo (as one person's history will differ from another). Generally rebase should not be used on any commits you have pushed to a public repo. 
+	\end{itemize}
+	\begin{block}{EXERCISE}
+		\begin{enumerate}
+			\item Make a few commits to your \textbf{myFirstRepo} or just use the existing history of your skill-pill fork
+			\item Making a meaningless WIP commit
+			\item Use \textbf{git rebase -i \textlangle{}HASH\textrangle{}} and follow the instructions
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
 \begin{frame}[fragile]
 \frametitle{Branches}
 \begin{itemize}
@@ -611,64 +667,6 @@ a powerful tool for storing and restoring history, and working collaboratively w
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{light-bulb.jpg}
 \end{columns}
-\end{frame}
-
-\section{Extra Credit}
-
-\begin{frame}
-\frametitle{(If Time Allows) Modifying Previous Commits}
-\begin{itemize}
-\item If you commit something that turns out to be a mistake, don't worry! There are plenty of tools to rework commits.
-\item Some are more powerful (and potentially distructive than others)
-\item Non-destructive: (Leaves history intact)
-	\begin{itemize}
-	\item \textbf{revert}
-	\end{itemize}
-\item Potentially destructive: (Changes history)
-	\begin{itemize}
-	\item \textbf{rebase}
-	\end{itemize}
-\item Danger Zone: (Can erase history)
-	\begin{itemize}
-	\item \textbf{reflog}
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\subsection{Revert}
-
-\begin{frame}[fragile]
-\frametitle{Using Revert}
-\begin{itemize}
-\item Revert makes a new commit showing that you reverted a previous commit.
-\item Pro: This is very useful for public repos (next session) where you want to show exactly what you've undone to others.
-\item Con: This can make your commit history quite messy if used too often. 
-\end{itemize}
-    \begin{block}{EXERCISE}
-        \begin{enumerate}
-        \item Make a few commits to your \textbf{myFirstRepo} or just use the existing history of your skill-pill fork
-	 \item Find a commit you want to revert using \textbf{git log} and \textbf{git show} or \textbf{git diff}
-	 \item Revert that commit with \textbf{git revert \textlangle{}HASH\textrangle{}} or \textbf{git revert HEAD\textasciitilde\textlangle{}\#\textrangle{}}
-        \end{enumerate}
-    \end{block}
-\end{frame}
-
-\subsection{Rebase}
-
-\begin{frame}[fragile]
-\frametitle{Using Rebase}
-\begin{itemize}
-\item Rebase rewrites the commit history by starting from specified base commit and choosing what to do with each commit all the way to the current HEAD.
-\item Pro: Great for removing WIP commits or otherwise meaningless commits. Use it to clean up your local history before pushing to a public repo.
-\item Con: This has the possiblity to create a lot of conflicts if used in a shared repo (as one person's history will differ from another). Generally rebase should not be used on any commits you have pushed to a public repo. 
-\end{itemize}
-    \begin{block}{EXERCISE}
-        \begin{enumerate}
-        \item Make a few commits to your \textbf{myFirstRepo} or just use the existing history of your skill-pill fork
-	 \item Making a meaningless WIP commit
-	 \item Use \textbf{git rebase -i \textlangle{}HASH\textrangle{}} and follow the instructions
-        \end{enumerate}
-    \end{block}
 \end{frame}
 
 \end{document} 
