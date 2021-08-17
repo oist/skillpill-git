@@ -630,6 +630,21 @@ git checkout a1e8fb5 hello.py
 	\end{enumerate}
 \end{block}
 \end{frame}
+\note{Lets take a look at how to create, delete and play around with branches. Note git warns you about a LOT. Its not perfect, but I highly encourage you to read the warnings carefully and understand them before moving on. The initial learning curve is a bit steeper, but it will save you SOOO much hassle trying to fix something you did despite git warning you it is likely a bad idea.}
+
+\begin{frame}[fragile]
+	\frametitle{Branches: Merging Them}
+	\begin{block}{EXERCISE}
+		\begin{enumerate}
+			\item \textbf{git checkout -b my2ndBranch } Create a new branch at HEAD and check it out
+			\item Make 2 GOOD commits (single line additions for now).
+			\item \textbf{git log --all} or \textbf{git log --pretty='format:\%C(auto)\%h \%d \%s, \%C(green)\%ad)' --all --graph --abbrev-commit --notes --date=relative} for a prettier log/tree.
+			\item \textbf{git checkout master}: Checkout master branch before deleting.
+			\item \textbf{git merge my2ndBranch}: Merges my2ndBranch into HEAD (master)
+			\item \textbf{git branch -d my2ndBranch}: Delete a branch (git doesn't warn you)
+		\end{enumerate}
+	\end{block}
+\end{frame}
 \note{Lets take a look at how to create, delete and play around with branches}
 
 \section{Working Online}
