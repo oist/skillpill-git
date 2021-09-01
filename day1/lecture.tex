@@ -648,72 +648,105 @@ git checkout a1e8fb5 hello.py
 \end{frame}
 \note{Note you may get merge conflicts. I don't want to spend too much time on these, as it can be a VERY complex topic, but just want to illustrate the basic idea here.}
 
+\begin{frame}
+	\frametitle{\textbf{Review}}
+	Git history:
+	\begin{itemize}
+		\item commits
+		\item git log --all --graph --online
+		\item git checkout
+		\item git reset
+		\item git revert
+		\item git rebase
+		\item git branch
+		\item git merge
+	\end{itemize}
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{merge.png}
+	\end{center}
+\end{frame}	
+
+\begin{frame}
+	\frametitle{\textbf{Review}}
+	Three main parts:
+	\begin{itemize}
+		\item Working Directory.
+		\item Stage or Index
+		\item Repository
+	\end{itemize}
+	\includegraphics[width=\textwidth]{git3MainItems.png}
+\end{frame}	
+
 \section{Working Online}
 
 \begin{frame}
-\frametitle{\textbf{git} with it!}
-\begin{columns}
-\column{0.7\textwidth}
-Now we move to the fun* stuff: working with \textbf{online repositories}.
-\begin{itemize}
-\item For this, we will be using \textbf{github}.
-\item We'll begin by creating a GitHub repository using the \href{www.github.com}{website}.
-\begin{itemize}
-\item If we're working on a project that's already hosted on a remote Git server, we can skip this step.
-\end{itemize}
-\item Next, we use \textbf{git clone} to download a copy.
-\item From here, you can do the following:
-\begin{itemize}
-\item \textbf{git push} to push any changes you may have to the online repository.
-\item \textbf{git pull} to take any changes from the repository. \textbf{git fetch} or \textbf{git remote update} may be better.
-\end{itemize}
-\end{itemize}
-\column{0.28\textwidth}
-\includegraphics[width=\textwidth]{clone.jpg}
-\end{columns}
-
-*Here, the word \textit{fun} is subject to interpretation.
-\end{frame}
-\note{It may be better (especially for beginners) to use git fetch or git remote update rather than pull}
+	\frametitle{\textbf{Remotes}}
+	\begin{center}
+		\includegraphics[width=\textwidth]{remotes.png}
+	\end{center}
+\end{frame}	
 
 \begin{frame}[fragile]
-\frametitle{Quick Exercise}
-    \begin{block}{EXERCISE}
-        \begin{enumerate}
-        \item Fork the \textbf{\href{https://github.com/topherbuckley/myFirstRepo}} repository using a browser.
-        \item Clone the forked repository* to your local disk:
-        \begin{lstlisting}
-git clone git@github.com:<git_user_name>/myFirstRepo.git
-        \end{lstlisting}
-        or
-        \begin{lstlisting}
-git clone https://github.com/<git_user_name>/myFirstRepo.git
-        \end{lstlisting}
-        \item Make some simple commits and test the process of \textbf{push}ing and \textbf{pull}ing stuff from that repo.
-        \end{enumerate}
-    \end{block}
+	\frametitle{Your First? Remote}
+	\begin{block}{EXERCISE}
+		\begin{enumerate}
+			\item Create a new repo using github (e.g. myfirstremote) (https://docs.github.com/en/get-started/quickstart/create-a-repo)
+			\item Add a README, .gitignore and a license.
+			\item Create a new repo from the command line with an idential name
+			\item Make some simple commits and test the process of \textbf{push}ing, \textbf{fetch}ing,  and \textbf{pull}ing stuff from that repo.
+			\item Check what is going on with each step via \textbf{git log --all --graph --oneline"}
+		\end{enumerate}
+	\end{block}
 \end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Working with Forks and Remotes}
 	\begin{itemize}
-		\item A fork is a copy of some other repo.
-		\item We want to keep our fork up to date with the repo so we can merge changes we make to the original repo eventually. 
-		\item Keep track of both the original and the fork via \textbf{git remote}
-		\item Using \textbf{git log --all} or the longer syntax from before, we can see the status of each repo.
+		\item A fork is a copy (with extras) of some other repo.
+		\item Pushing your changes to a shared repo can cause chaos (unless done in a VERY structured way)
+		\item Forks enable multiple people to freely push/pull their changes without messing up the original repo.
+		\item We want to keep our fork up to date with the original repo so we can merge changes we make to the original repo eventually. 
+		\item Keep track of both the original and the fork(s) via \textbf{git remote -v}
+		\item Using \textbf{git log --all --graph --oneline} we can see the status of each repo. Remotes in RED, branches in GREEN.
+		\item One or a few people act as the gate keeper to the original repo by reviewing and approving/denying pull requests.
 	\end{itemize}
 \end{frame}
 
+\begin{frame}
+	\frametitle{\textbf{Forks}}
+	\begin{center}
+		\includegraphics[width=\textwidth]{forks.png}
+	\end{center}
+\end{frame}	
 
 \begin{frame}[fragile]
-	\frametitle{Working with Forks and Remotes}
+	\frametitle{Cloning Your First Fork}
 	\begin{block}{EXERCISE}
 		\begin{enumerate}
-			\item \textbf{git remote add upstream git@github.com:topherbuckley/myFirstRepo.git} or
-			\item \textbf{git remote add upstream https://github.com/topherbuckley/myFirstRepo.git}
-			\item \textbf{git remote update} to download any changes from the remotes. Your fork is likely called "origin" and the original repo called "upstream"
-			\item check this with \textbf{git remote -v} to show all remotes and \textbf{git log --all} to see how they all overlap.
-			\item Let me make some updates to upstream and then you try \textbf{git fetch upstream} or \textbf{git remote update} then \textbf{git log --all} to see the changes
+			\item Go to \textbf{https://github.com/oist/myfirstfork}
+			\item Click "Fork" in the top-right and select your account.
+			\item Click Code and clone the repo via HTTPS or SSH. Click the ? if you are unsure which you would like to use. 
+			\item In some directory (e.g. ~/git/) use \textbf{git clone git@github.com:topherbuckley/myfirstfork.git} to clone into your fork.
+			\item \textbf{cd myfirstfork} and \textbf{git status}
+			\item \textbf{git log --all --oneline --graph}
+			\item \textbf{git remote -v}
+			\item \textbf{git remote rename origin fork} and \textbf{git remote -v}
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Keeping in Sync with the Original Repo}
+	\begin{block}{EXERCISE}
+		\begin{enumerate}
+			\item \textbf{git remote add oist git@github.com:oist/myfirstfork.git} or \textbf{git remote add oist https://github.com/oist/myfirstfork.git}
+			\item \textbf{git remote -v}
+			\item \textbf{git remote update} to download any changes from the remotes.
+			\item \textbf{git log --all --oneline --graph} to see how they all overlap.
+			\item Allow me to push a new commit.
+			\item \textbf{git fetch oist} or \textbf{git remote update} to fetch these changes
+			\item \textbf{git merge oist/main} to merge these changes
+			\item Note \textbf{git fetch oist} followed by \textbf{git merge oist/main} is roughly equivalent to \textbf{git pull oist main} but this can be hazardous!
 		\end{enumerate}
 	\end{block}
 \end{frame}
@@ -721,11 +754,28 @@ git clone https://github.com/<git_user_name>/myFirstRepo.git
 \begin{frame}[fragile]
 	\frametitle{Pull Requests (PRs)}
 	\begin{itemize}
-		\item A pull request is making a request to some github repo to merge in your changes.
+		\item A pull request is making a request to some github repo to merge in \textbf{your} changes.
 		\item Github provides several ways to edit and discuss these PRs before merging.
 		\item Lets take a look at how to make one, and how to interact with them.
 		\item If time allows lets look at using rebase to update our PRs with more current changes in the upstream repo.
 	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Your First? Pull Request}
+	\begin{block}{EXERCISE}
+		\begin{enumerate}
+			\item Add your name to README and make a commit with this change
+			\item \textbf{git log --all --oneline --graph} to see this new commit on your local repo. DO THIS AFTER EVERY STEP to see what is happening from each command.
+			\item \textbf{git push fork main} (or just \textbf{git push} in this case)
+			\item Go to your fork on github, "Contribute" then "Open Pull Request"
+			\item Make sure you are requesting to pull changes from the "main" branch of your fork into the "main" branch of the oist repo.
+			\item Check your changes in the git diff below. When happy with what you see, "Create pull request"
+			\item Add a message to explain/summarize what your PR contains.
+			\item Inform me that you've done so and I will merge your changes
+			\item \textbf{git remote update} or \textbf{git fetch oist} after I've merged the changes.
+		\end{enumerate}
+	\end{block}
 \end{frame}
 
 \begin{frame}[fragile]
