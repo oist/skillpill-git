@@ -779,10 +779,109 @@ git checkout a1e8fb5 hello.py
 \end{frame}
 
 \begin{frame}[fragile]
+	\frametitle{Merge Conflicts}
+	\begin{itemize}
+		\item Remember: pull = fetch + merge
+		\item A pull request is no different.
+		\item When you try to merge conflicting changes git requests that you make take the wheel
+		\item Who should resolve the conflicts?
+		\item How to resolve conflicts? 
+	\end{itemize}
+
+	\textbf{https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts}
+\end{frame}
+\note{
+	\begin{itemize}
+	\item The author of the PR typically should resolve the conflicts as they are the ones who are proposing to CHANGE something from how it was. They should be able to explain WHY it should be changed to the person maintaining the main branch. 
+	\end{itemize}
+}
+
+\begin{frame}[fragile]
+	\frametitle{Resolving Merge Conflicts}
+	\begin{itemize}
+		\item Resolving them on Github (New?)
+			\begin{itemize}
+				\item Does this require push permissions? (i.e. PR requestor cannot do this?)
+			\end{itemize}
+		\item Resolving them in the terminal
+			\begin{itemize}
+				\item Conflicting lines
+				\item Rebasing
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+\note{
+	\begin{itemize}
+		\item 
+	\end{itemize}
+}
+
+\begin{frame}[fragile]
+	\frametitle{Conflicting Line Merge Conflicts}
+	Example: A Pull Request from branch-a to main. 
+	\begin{lstlisting}
+		If you have questions, please
+		<<<<<<< HEAD
+		open an issue
+		=======
+		ask your question in IRC.
+		>>>>>>> branch-a
+	\end{lstlisting}
+	\begin{lstlisting}
+		From <<<<<<< HEAD to ======= are the lines that currently exist in the main branch
+	
+		From ======= to >>>>>>> branch-a are the lines with proposed changes from branch-a. 
+	\end{lstlisting}
+\end{frame}
+\note{
+	\begin{itemize}
+		\item 
+	\end{itemize}
+}
+
+\begin{frame}[fragile]
+	\frametitle{Conflicting Line Merge Conflicts}
+		\begin{itemize}
+			\item Manually remove the lines you don't want and keep those you do.
+			\item Remove all git markup
+			\item \textbf{git add myFile} 
+			\item \textbf{git commit} to conclude merge commit
+			\item \textbf{git push} to push resolving changes
+			\item PR is automatically updated to reflect the tip of the branch you are trying to merge. Thus conflicts should be gone. 
+		\end{itemize}
+\end{frame}
+\note{
+	\begin{itemize}
+		\item 
+	\end{itemize}
+}
+
+\begin{frame}[fragile]
+	\frametitle{Refactored Merge Conflicts}
+	Sometimes it can be easier to understand what changed if you do a rebase rather than a merge. e.g.:
+	\includegraphics[width=\textwidth]{rebaseVsMerge.png}
+\end{frame}
+\note{
+	\begin{itemize}
+		\item Let me demonstrate what this looks like before we move to an exercise. 
+	\end{itemize}
+}
+
+\begin{frame}[fragile]
 	\frametitle{Rebasing a PR}
-	\begin{block}{EXERCISE}
+	\begin{block}{Excercise}
 		\begin{enumerate}
-			\item TBD
+			\item Note: This exercise has caused CHAOS in the past, so no gaurantees. 
+			\item Add a line to the end of README
+			\item Make a commnit and push it to your fork
+			\item Make a PR with this new commit
+			\item Wait for me to create another commit in oist/main before proceeding
+			\item Refresh your PR to notice the conflict
+			\item Fetch oist changes locally
+			\item \textbf{git rebase oist/main} and resolve the conflicts locally
+			\item \textbf{git rebase --continue}
+			\item \textbf{git push -f}
+			\item Note PR now is conflict free. 
 		\end{enumerate}
 	\end{block}
 \end{frame}
